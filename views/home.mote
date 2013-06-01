@@ -17,5 +17,5 @@
 </table>
 <br>
 <p>To get some restaurant details as a hash go to:<br><br>
-www.cuba_json.herokuapp.com/search.json/Restaurant_name
+http://cuba-json.herokuapp.com/search.json/restaurant_name
 </p>
