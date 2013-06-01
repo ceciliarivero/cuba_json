@@ -38,6 +38,11 @@ Cuba.define do
   end
 
   on "search.json/:restaurant" do |restaurant|
+    if restaurant.include?('%20')
+      restaurant = restaurant.gsub!('%20',' ').split(' ').each{|word| word.capitalize!}.join(' ')
+    else
+      restaurant = restaurant.capitalize
+    end
     if Restaurant.find(:name => restaurant).empty?
       res.write "Not found"
     else
