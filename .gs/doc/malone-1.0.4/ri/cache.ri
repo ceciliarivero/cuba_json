@@ -1,7 +1,0 @@
-{:ancestors{I"Malone:EF[I"Object;FI"Malone::Configuration;F[I"Object;FI"Malone::Envelope;F[I"MailFactory;F:attributes{I"Malone;F[I"attr_reader config;F@
-[I"attr_accessor auth;FI"attr_accessor domain;FI"attr_accessor host;FI"attr_accessor password;FI"attr_accessor port;FI"attr_accessor tls;FI"attr_accessor user;F@[I"attr_reader bcc;F:class_methods{I"Malone;F[
-I"connect;FI"current;FI"deliver;FI"deliveries;FI"new;F@
-[I"new;F@[I"new;F:encodingIu:Encoding
-UTF-8;F:instance_methods{I"Malone;F[	I"config;FI"deliver;FI"envelope;FI"recipients;F@
-[I"	auth;FI"
-auth=;FI"domain;FI"	host;FI"password;FI"	port;FI"tls;FI"	user;F@[I"bcc;FI"	bcc=;F:modules[I"Malone;FI"Malone::Configuration;FI"Malone::Envelope;F
