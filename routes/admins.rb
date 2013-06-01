@@ -77,7 +77,7 @@ class Admins < Cuba
 
           if add_restaurant.valid?
             params[:admin_id] = Admin[session[:Admin]].id
-            restaurant = Restaurant.create(JSON.dump(params))
+            restaurant = Restaurant.create(params)
 
             session[:success] = "You have successfully added a new restaurant."
             res.redirect "/admin/dashboard"

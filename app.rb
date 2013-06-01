@@ -37,6 +37,16 @@ Cuba.define do
       content: mote("views/home.mote"))
   end
 
+  on "search.json/:restaurant" do |restaurant|
+    if Restaurant.find(:name => restaurant).empty?
+      res.write "Not found"
+    else
+      restaurant_id = Restaurant.find(:name => restaurant).ids[0]
+      r = JSON.dump(Restaurant[restaurant_id].attributes)
+      res.write r
+    end
+  end
+
   on "admin" do
     run Admins
   end
