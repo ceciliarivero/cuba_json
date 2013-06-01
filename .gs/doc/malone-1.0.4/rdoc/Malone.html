@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Malone - malone-1.0.4 Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/malone.rb
+    <li>lib/malone/test.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-connect">::connect</a>
+    
+    <li><a href="#method-c-current">::current</a>
+    
+    <li><a href="#method-c-deliver">::deliver</a>
+    
+    <li><a href="#method-c-deliveries">::deliveries</a>
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-deliver">#deliver</a>
+    
+    <li><a href="#method-i-envelope">#envelope</a>
+    
+    <li><a href="#method-i-recipients">#recipients</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Malone.html">Malone</a>
+  
+    <li><a href="./Malone/Configuration.html">Malone::Configuration</a>
+  
+    <li><a href="./Malone/Envelope.html">Malone::Envelope</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Malone</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-config" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">config</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-connect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">connect</span><span
+            class="method-args">(options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="connect-source">
+            <pre><span class="ruby-comment"># File lib/malone.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">connect</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-ivar">@config</span> = <span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>)
+
+  <span class="ruby-identifier">current</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- connect-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- connect-method -->
+
+    
+      <div id="method-c-current" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">current</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="current-source">
+            <pre><span class="ruby-comment"># File lib/malone.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">current</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-ivar">@config</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">RuntimeError</span>, <span class="ruby-string">&quot;Missing configuration: Try doing `Malone.connect`.&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">new</span>(<span class="ruby-ivar">@config</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- current-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- current-method -->
+
+    
+      <div id="method-c-deliver" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deliver</span><span
+            class="method-args">(dict)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="deliver-source">
+            <pre><span class="ruby-comment"># File lib/malone.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">deliver</span>(<span class="ruby-identifier">dict</span>)
+  <span class="ruby-identifier">current</span>.<span class="ruby-identifier">deliver</span>(<span class="ruby-identifier">dict</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- deliver-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- deliver-method -->
+
+    
+      <div id="method-c-deliveries" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deliveries</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="deliveries-source">
+            <pre><span class="ruby-comment"># File lib/malone/test.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">deliveries</span>
+  <span class="ruby-ivar">@deliveries</span> <span class="ruby-operator">||=</span> []
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- deliveries-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- deliveries-method -->
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(config)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/malone.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">config</span>)
+  <span class="ruby-ivar">@config</span> = <span class="ruby-identifier">config</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-deliver" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deliver</span><span
+            class="method-args">(dict)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="deliver-source">
+            <pre><span class="ruby-comment"># File lib/malone.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">deliver</span>(<span class="ruby-identifier">dict</span>)
+  <span class="ruby-identifier">mail</span> = <span class="ruby-identifier">envelope</span>(<span class="ruby-identifier">dict</span>)
+
+  <span class="ruby-identifier">smtp</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">SMTP</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">config</span>.<span class="ruby-identifier">host</span>, <span class="ruby-identifier">config</span>.<span class="ruby-identifier">port</span>)
+  <span class="ruby-identifier">smtp</span>.<span class="ruby-identifier">enable_starttls_auto</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">config</span>.<span class="ruby-identifier">tls</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">smtp</span>.<span class="ruby-identifier">start</span>(<span class="ruby-identifier">config</span>.<span class="ruby-identifier">domain</span>, <span class="ruby-identifier">config</span>.<span class="ruby-identifier">user</span>, <span class="ruby-identifier">config</span>.<span class="ruby-identifier">password</span>, <span class="ruby-identifier">config</span>.<span class="ruby-identifier">auth</span>)
+    <span class="ruby-identifier">smtp</span>.<span class="ruby-identifier">send_message</span>(<span class="ruby-identifier">mail</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">mail</span>.<span class="ruby-identifier">from</span>.<span class="ruby-identifier">first</span>, *<span class="ruby-identifier">recipients</span>(<span class="ruby-identifier">mail</span>))
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-identifier">smtp</span>.<span class="ruby-identifier">finish</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">smtp</span>.<span class="ruby-identifier">started?</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- deliver-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- deliver-method -->
+
+    
+      <div id="method-i-envelope" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">envelope</span><span
+            class="method-args">(dict)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="envelope-source">
+            <pre><span class="ruby-comment"># File lib/malone.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">envelope</span>(<span class="ruby-identifier">dict</span>)
+  <span class="ruby-identifier">envelope</span> = <span class="ruby-constant">Envelope</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">envelope</span>.<span class="ruby-identifier">from</span>    = <span class="ruby-identifier">dict</span>[<span class="ruby-value">:from</span>]
+  <span class="ruby-identifier">envelope</span>.<span class="ruby-identifier">to</span>      = <span class="ruby-identifier">dict</span>[<span class="ruby-value">:to</span>]
+  <span class="ruby-identifier">envelope</span>.<span class="ruby-identifier">cc</span>      = <span class="ruby-identifier">dict</span>[<span class="ruby-value">:cc</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">dict</span>[<span class="ruby-value">:cc</span>]
+  <span class="ruby-identifier">envelope</span>.<span class="ruby-identifier">bcc</span>     = <span class="ruby-identifier">dict</span>[<span class="ruby-value">:bcc</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">dict</span>[<span class="ruby-value">:bcc</span>]
+  <span class="ruby-identifier">envelope</span>.<span class="ruby-identifier">text</span>    = <span class="ruby-identifier">dict</span>[<span class="ruby-value">:text</span>]
+  <span class="ruby-identifier">envelope</span>.<span class="ruby-identifier">rawhtml</span> = <span class="ruby-identifier">dict</span>[<span class="ruby-value">:html</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">dict</span>[<span class="ruby-value">:html</span>]
+  <span class="ruby-identifier">envelope</span>.<span class="ruby-identifier">subject</span> = <span class="ruby-identifier">dict</span>[<span class="ruby-value">:subject</span>]
+
+  <span class="ruby-identifier">envelope</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-identifier">dict</span>[<span class="ruby-value">:attach</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">dict</span>[<span class="ruby-value">:attach</span>]
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">envelope</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- envelope-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- envelope-method -->
+
+    
+      <div id="method-i-recipients" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">recipients</span><span
+            class="method-args">(mail)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="recipients-source">
+            <pre><span class="ruby-comment"># File lib/malone.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">recipients</span>(<span class="ruby-identifier">mail</span>)
+  [].<span class="ruby-identifier">tap</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ret</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">ret</span>.<span class="ruby-identifier">push</span>(*<span class="ruby-identifier">mail</span>.<span class="ruby-identifier">to</span>)
+    <span class="ruby-identifier">ret</span>.<span class="ruby-identifier">push</span>(*<span class="ruby-identifier">mail</span>.<span class="ruby-identifier">cc</span>)
+    <span class="ruby-identifier">ret</span>.<span class="ruby-identifier">push</span>(*<span class="ruby-identifier">mail</span>.<span class="ruby-identifier">bcc</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- recipients-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- recipients-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

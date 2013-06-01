@@ -1,0 +1,15 @@
+<form method="post">
+  <h3>Admin Login</h3>
+
+  <label>Email</label>
+  <input type="text" name="username" value="{{ username }}">
+
+  <label>Password</label>
+  <input type="password" name="password" value="">
+
+  <div id="bottom">
+    <label>Remember me</label>
+    <input type="checkbox" name="remember" value="1">
+    <button type="submit" name="submit">Login</button>
+  </div>
+</form>

@@ -1,0 +1,7 @@
+% if session[:success]
+  <div id="hide">{{ session.delete(:success) }}</div>
+% end
+
+% if session[:error]
+  <div id="hide">{{ session.delete(:error) }}</div>
+% end

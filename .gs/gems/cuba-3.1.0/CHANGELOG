@@ -1,0 +1,19 @@
+3.1.0
+
+* Do a deep clone of the settings object during inheritance.
+* Start namespacing plugins (i.e. settings[:render]).
+* Use rack/test when doing `require 'cuba/test'`.
+* Capybara available via `require 'cuba/capybara'`.
+* Use a default hash for the render plugin.
+* Allow the use of custom Request and Response objects.
+
+3.0.0
+
+* Remove Cuba.build. Use subclassing instead.
+* Remove warnings.
+* Use Cuba::Response instead of Rack::Response.
+* Integrate Cuba.plugin and Cuba.settings.
+* Remove Cuba::VERSION.
+* Rename _call to call! (inspired from Sinatra).
+* Fix a memory leak with the caching used in Tilt.
+* Adding syntax highlighting to the README Code blocks

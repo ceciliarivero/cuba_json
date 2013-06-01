@@ -1,0 +1,6 @@
+{:ancestors{I"Shield::Middleware:EF[I"Object;FI" Shield::Model::FetchMissing;F[I"StandardError;F:attributes{@[I"attr_reader url;F:class_methods{@[I"new;FI"Shield::Model;F[I"included;FI"Shield::Password;F[I"
+check;FI"digest;FI"encrypt;FI"generate_salt;FI"iterations;FI"iterations=;F:encodingIu:Encoding
+UTF-8;F:instance_methods{	@[I"	call;FI"url;FI"Shield::Helpers;F[
+I"authenticate;FI"authenticated;FI"
+login;FI"logout;FI"persist_session!;F@[I"password=;FI" Shield::Model::ClassMethods;F[I"authenticate;FI"
+fetch;FI"is_valid_password?;F:modules[I"Shield;FI"Shield::Helpers;FI"Shield::Middleware;FI"Shield::Model;FI" Shield::Model::ClassMethods;FI" Shield::Model::FetchMissing;FI"Shield::Password;F

@@ -1,0 +1,3018 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Ohm::Model - ohm-1.3.2 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/ohm/json.rb
+    <li>lib/ohm.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">Scrivener::Validations</span>
+  
+  
+  </ul>
+</nav>
+
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-5B-5D">::[]</a>
+    
+    <li><a href="#method-c-all">::all</a>
+    
+    <li><a href="#method-c-attribute">::attribute</a>
+    
+    <li><a href="#method-c-attributes">::attributes</a>
+    
+    <li><a href="#method-c-collection">::collection</a>
+    
+    <li><a href="#method-c-collections">::collections</a>
+    
+    <li><a href="#method-c-conn">::conn</a>
+    
+    <li><a href="#method-c-connect">::connect</a>
+    
+    <li><a href="#method-c-counter">::counter</a>
+    
+    <li><a href="#method-c-counters">::counters</a>
+    
+    <li><a href="#method-c-create">::create</a>
+    
+    <li><a href="#method-c-db">::db</a>
+    
+    <li><a href="#method-c-exists-3F">::exists?</a>
+    
+    <li><a href="#method-c-fetch">::fetch</a>
+    
+    <li><a href="#method-c-filters">::filters</a>
+    
+    <li><a href="#method-c-find">::find</a>
+    
+    <li><a href="#method-c-index">::index</a>
+    
+    <li><a href="#method-c-indices">::indices</a>
+    
+    <li><a href="#method-c-key">::key</a>
+    
+    <li><a href="#method-c-list">::list</a>
+    
+    <li><a href="#method-c-lua">::lua</a>
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-c-new_id">::new_id</a>
+    
+    <li><a href="#method-c-reference">::reference</a>
+    
+    <li><a href="#method-c-set">::set</a>
+    
+    <li><a href="#method-c-to_indices">::to_indices</a>
+    
+    <li><a href="#method-c-to_proc">::to_proc</a>
+    
+    <li><a href="#method-c-to_reference">::to_reference</a>
+    
+    <li><a href="#method-c-unique">::unique</a>
+    
+    <li><a href="#method-c-uniques">::uniques</a>
+    
+    <li><a href="#method-c-with">::with</a>
+    
+    <li><a href="#method-i-3D-3D">#==</a>
+    
+    <li><a href="#method-i-__save__">#__save__</a>
+    
+    <li><a href="#method-i-_delete_existing_indices">#_delete_existing_indices</a>
+    
+    <li><a href="#method-i-_delete_existing_uniques">#_delete_existing_uniques</a>
+    
+    <li><a href="#method-i-_delete_indices">#_delete_indices</a>
+    
+    <li><a href="#method-i-_delete_uniques">#_delete_uniques</a>
+    
+    <li><a href="#method-i-_detect_duplicate">#_detect_duplicate</a>
+    
+    <li><a href="#method-i-_initialize_id">#_initialize_id</a>
+    
+    <li><a href="#method-i-_read_attributes">#_read_attributes</a>
+    
+    <li><a href="#method-i-_read_index_type">#_read_index_type</a>
+    
+    <li><a href="#method-i-_save">#_save</a>
+    
+    <li><a href="#method-i-_save_indices">#_save_indices</a>
+    
+    <li><a href="#method-i-_save_uniques">#_save_uniques</a>
+    
+    <li><a href="#method-i-_skip_empty">#_skip_empty</a>
+    
+    <li><a href="#method-i-_unique_keys">#_unique_keys</a>
+    
+    <li><a href="#method-i-_verify_uniques">#_verify_uniques</a>
+    
+    <li><a href="#method-i-attributes">#attributes</a>
+    
+    <li><a href="#method-i-db">#db</a>
+    
+    <li><a href="#method-i-decr">#decr</a>
+    
+    <li><a href="#method-i-delete">#delete</a>
+    
+    <li><a href="#method-i-eql-3F">#eql?</a>
+    
+    <li><a href="#method-i-get">#get</a>
+    
+    <li><a href="#method-i-hash">#hash</a>
+    
+    <li><a href="#method-i-id">#id</a>
+    
+    <li><a href="#method-i-incr">#incr</a>
+    
+    <li><a href="#method-i-key">#key</a>
+    
+    <li><a href="#method-i-load-21">#load!</a>
+    
+    <li><a href="#method-i-model">#model</a>
+    
+    <li><a href="#method-i-new-3F">#new?</a>
+    
+    <li><a href="#method-i-save">#save</a>
+    
+    <li><a href="#method-i-save-21">#save!</a>
+    
+    <li><a href="#method-i-set">#set</a>
+    
+    <li><a href="#method-i-to_hash">#to_hash</a>
+    
+    <li><a href="#method-i-to_json">#to_json</a>
+    
+    <li><a href="#method-i-transaction">#transaction</a>
+    
+    <li><a href="#method-i-update">#update</a>
+    
+    <li><a href="#method-i-update_attributes">#update_attributes</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Ohm.html">Ohm</a>
+  
+    <li><a href="../Ohm/BasicSet.html">Ohm::BasicSet</a>
+  
+    <li><a href="../Ohm/Collection.html">Ohm::Collection</a>
+  
+    <li><a href="../Ohm/Command.html">Ohm::Command</a>
+  
+    <li><a href="../Ohm/Connection.html">Ohm::Connection</a>
+  
+    <li><a href="../Ohm/Error.html">Ohm::Error</a>
+  
+    <li><a href="../Ohm/IndexNotFound.html">Ohm::IndexNotFound</a>
+  
+    <li><a href="../Ohm/List.html">Ohm::List</a>
+  
+    <li><a href="../Ohm/MissingID.html">Ohm::MissingID</a>
+  
+    <li><a href="../Ohm/Model.html">Ohm::Model</a>
+  
+    <li><a href="../Ohm/MultiSet.html">Ohm::MultiSet</a>
+  
+    <li><a href="../Ohm/MutableSet.html">Ohm::MutableSet</a>
+  
+    <li><a href="../Ohm/Set.html">Ohm::Set</a>
+  
+    <li><a href="../Ohm/Transaction.html">Ohm::Transaction</a>
+  
+    <li><a href="../Ohm/Transaction/Store.html">Ohm::Transaction::Store</a>
+  
+    <li><a href="../Ohm/Transaction/Store/EntryAlreadyExistsError.html">Ohm::Transaction::Store::EntryAlreadyExistsError</a>
+  
+    <li><a href="../Ohm/Transaction/Store/NoEntryError.html">Ohm::Transaction::Store::NoEntryError</a>
+  
+    <li><a href="../Ohm/UniqueIndexViolation.html">Ohm::UniqueIndexViolation</a>
+  
+    <li><a href="../Ohm/Utils.html">Ohm::Utils</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Ohm::Model</h1>
+
+  <div id="description" class="description">
+    
+<p>The base class for all your models. In order to better understand it, here
+is a semi-realtime explanation of the details involved when creating a User
+instance.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">User</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span>
+  <span class="ruby-identifier">attribute</span> :<span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">index</span> :<span class="ruby-identifier">name</span>
+
+  <span class="ruby-identifier">attribute</span> :<span class="ruby-identifier">email</span>
+  <span class="ruby-identifier">unique</span> :<span class="ruby-identifier">email</span>
+
+  <span class="ruby-identifier">counter</span> :<span class="ruby-identifier">points</span>
+
+  <span class="ruby-identifier">set</span> :<span class="ruby-identifier">posts</span>, :<span class="ruby-constant">Post</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">u</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">create</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;John&quot;</span>, :<span class="ruby-identifier">email</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;foo@bar.com&quot;</span>)
+<span class="ruby-identifier">u</span>.<span class="ruby-identifier">incr</span> :<span class="ruby-identifier">points</span>
+<span class="ruby-identifier">u</span>.<span class="ruby-identifier">posts</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">Post</span>.<span class="ruby-identifier">create</span>)
+</pre>
+
+<p>When you execute `User.create(…)`, you run the following Redis commands:</p>
+
+<pre># Generate an ID
+INCR User:id
+
+# Add the newly generated ID, (let's assume the ID is 1).
+SADD User:all 1
+
+# Store the unique index
+HSET User:uniques:email foo@bar.com 1
+
+# Store the name index
+SADD User:indices:name:John 1
+
+# Store the HASH
+HMSET User:1 name John email foo@bar.com</pre>
+
+<p>Next we increment points:</p>
+
+<pre>HINCR User:1:counters points 1</pre>
+
+<p>And then we add a Post to the `posts` set. (For brevity, let’s assume the
+Post created has an ID of 1).</p>
+
+<pre>SADD User:1:posts 1</pre>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-id" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">id</span><span
+            class="attribute-access-type">[W]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-5B-5D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">(id)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Retrieve a record by ID.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">u</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">create</span>
+<span class="ruby-identifier">u</span> <span class="ruby-operator">==</span> <span class="ruby-constant">User</span>[<span class="ruby-identifier">u</span>.<span class="ruby-identifier">id</span>]
+<span class="ruby-comment"># =&gt;  true</span>
+</pre>
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 748</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-operator">[]</span>(<span class="ruby-identifier">id</span>)
+  <span class="ruby-identifier">new</span>(<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">id</span>).<span class="ruby-identifier">load!</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">id</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- 5B-5D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- 5B-5D-method -->
+
+    
+      <div id="method-c-all" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>An <a href="Set.html">Ohm::Set</a> wrapper for <a
+href="Model.html#method-c-key">::key</a>.</p>
+          
+
+          
+          <div class="method-source-code" id="all-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1076</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">all</span>
+  <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span>[<span class="ruby-value">:all</span>], <span class="ruby-identifier">key</span>, <span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- all-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- all-method -->
+
+    
+      <div id="method-c-attribute" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">attribute</span><span
+            class="method-args">(name, cast = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The bread and butter macro of all models. Basically declares persisted
+attributes. All attributes are stored on the Redis hash.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">User</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span>
+  <span class="ruby-identifier">attribute</span> :<span class="ruby-identifier">name</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-comment"># It's the same as:</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">User</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">name</span>
+    <span class="ruby-ivar">@attributes</span>[:<span class="ruby-identifier">name</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">name=</span>(<span class="ruby-identifier">name</span>)
+    <span class="ruby-ivar">@attributes</span>[:<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+          
+
+          
+          <div class="method-source-code" id="attribute-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1026</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">attribute</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">cast</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">attributes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">name</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">name</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">cast</span>
+    <span class="ruby-identifier">define_method</span>(<span class="ruby-identifier">name</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">cast</span>[<span class="ruby-ivar">@attributes</span>[<span class="ruby-identifier">name</span>]]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">define_method</span>(<span class="ruby-identifier">name</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-ivar">@attributes</span>[<span class="ruby-identifier">name</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">define_method</span>(<span class="ruby-value">:&quot;#{name}=&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@attributes</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- attribute-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- attribute-method -->
+
+    
+      <div id="method-c-collection" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">collection</span><span
+            class="method-args">(name, model, reference = to_reference)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A macro for defining a method which basically does a find.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Post</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span>
+  <span class="ruby-identifier">reference</span> :<span class="ruby-identifier">user</span>, :<span class="ruby-constant">User</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">User</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span>
+  <span class="ruby-identifier">collection</span> :<span class="ruby-identifier">posts</span>, :<span class="ruby-constant">Post</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-comment"># is the same as</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">User</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">posts</span>
+    <span class="ruby-constant">Post</span>.<span class="ruby-identifier">find</span>(:<span class="ruby-identifier">user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+          
+
+          
+          <div class="method-source-code" id="collection-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 940</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">collection</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">model</span>, <span class="ruby-identifier">reference</span> = <span class="ruby-identifier">to_reference</span>)
+  <span class="ruby-identifier">define_method</span> <span class="ruby-identifier">name</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">model</span> = <span class="ruby-constant">Utils</span>.<span class="ruby-identifier">const</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>, <span class="ruby-identifier">model</span>)
+    <span class="ruby-identifier">model</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">:&quot;#{reference}_id&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">id</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- collection-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- collection-method -->
+
+    
+      <div id="method-c-conn" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">conn</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="conn-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 702</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">conn</span>
+  <span class="ruby-ivar">@conn</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Connection</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>, <span class="ruby-constant">Ohm</span>.<span class="ruby-identifier">conn</span>.<span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- conn-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- conn-method -->
+
+    
+      <div id="method-c-connect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">connect</span><span
+            class="method-args">(options)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="connect-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 706</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">connect</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-ivar">@key</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@lua</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">conn</span>.<span class="ruby-identifier">start</span>(<span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- connect-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- connect-method -->
+
+    
+      <div id="method-c-counter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">counter</span><span
+            class="method-args">(name)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Declare a counter. All the counters are internally stored in a different
+Redis hash, independent from the one that stores the model attributes.
+Counters are updated with the `incr` and `decr` methods, which interact
+directly with Redis. Their value can’t be assigned as with regular
+attributes.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">User</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span>
+  <span class="ruby-identifier">counter</span> :<span class="ruby-identifier">points</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">u</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">create</span>
+<span class="ruby-identifier">u</span>.<span class="ruby-identifier">incr</span> :<span class="ruby-identifier">points</span>
+
+<span class="ruby-constant">Ohm</span>.<span class="ruby-identifier">redis</span>.<span class="ruby-identifier">hget</span> <span class="ruby-string">&quot;User:1:counters&quot;</span>, <span class="ruby-string">&quot;points&quot;</span>
+<span class="ruby-comment"># =&gt; 1</span>
+</pre>
+
+<p>Note: You can’t use counters until you save the model. If you try to do it,
+you’ll receive an <a href="MissingID.html">Ohm::MissingID</a> error.</p>
+          
+
+          
+          <div class="method-source-code" id="counter-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1065</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">counter</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">counters</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">name</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">counters</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">name</span>)
+
+  <span class="ruby-identifier">define_method</span>(<span class="ruby-identifier">name</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-value">0</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">new?</span>
+
+    <span class="ruby-identifier">db</span>.<span class="ruby-identifier">hget</span>(<span class="ruby-identifier">key</span>[<span class="ruby-value">:counters</span>], <span class="ruby-identifier">name</span>).<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- counter-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- counter-method -->
+
+    
+      <div id="method-c-create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">(atts = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Syntactic sugar for <a href="Model.html#method-c-new">::new</a>.save</p>
+          
+
+          
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1081</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">atts</span> = {})
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">atts</span>).<span class="ruby-identifier">save</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- create-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- create-method -->
+
+    
+      <div id="method-c-db" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">db</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="db-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 712</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">db</span>
+  <span class="ruby-identifier">conn</span>.<span class="ruby-identifier">redis</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- db-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- db-method -->
+
+    
+      <div id="method-c-exists-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exists?</span><span
+            class="method-args">(id)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Check if the ID exists within &lt;Model&gt;:all.</p>
+          
+
+          
+          <div class="method-source-code" id="exists-3F-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 769</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">id</span>)
+  <span class="ruby-identifier">db</span>.<span class="ruby-identifier">sismember</span>(<span class="ruby-identifier">key</span>[<span class="ruby-value">:all</span>], <span class="ruby-identifier">id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- exists-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- exists-3F-method -->
+
+    
+      <div id="method-c-fetch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch</span><span
+            class="method-args">(ids)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Retrieve a set of models given an array of IDs.</p>
+
+<p>Example:</p>
+
+<pre>User.fetch([1, 2, 3])</pre>
+          
+
+          
+          <div class="method-source-code" id="fetch-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 846</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">ids</span>)
+  <span class="ruby-identifier">all</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">ids</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- fetch-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- fetch-method -->
+
+    
+      <div id="method-c-find" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find</span><span
+            class="method-args">(dict)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Find values in indexed fields.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">User</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span>
+  <span class="ruby-identifier">attribute</span> :<span class="ruby-identifier">email</span>
+
+  <span class="ruby-identifier">attribute</span> :<span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">index</span> :<span class="ruby-identifier">name</span>
+
+  <span class="ruby-identifier">attribute</span> :<span class="ruby-identifier">status</span>
+  <span class="ruby-identifier">index</span> :<span class="ruby-identifier">status</span>
+
+  <span class="ruby-identifier">index</span> :<span class="ruby-identifier">provider</span>
+  <span class="ruby-identifier">index</span> :<span class="ruby-identifier">tag</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">provider</span>
+    <span class="ruby-identifier">email</span>[<span class="ruby-regexp">%r@(.*?).com/</span>, <span class="ruby-value">1</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">tag</span>
+    [<span class="ruby-string">&quot;ruby&quot;</span>, <span class="ruby-string">&quot;python&quot;</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">u</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;John&quot;</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;pending&quot;</span>, <span class="ruby-identifier">email</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;foo@me.com&quot;</span>)
+<span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">provider</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;me&quot;</span>, <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;John&quot;</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;pending&quot;</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">u</span>)
+<span class="ruby-comment"># =&gt; true</span>
+
+<span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(:<span class="ruby-identifier">tag</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ruby&quot;</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">u</span>)
+<span class="ruby-comment"># =&gt; true</span>
+
+<span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(:<span class="ruby-identifier">tag</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;python&quot;</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">u</span>)
+<span class="ruby-comment"># =&gt; true</span>
+
+<span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(:<span class="ruby-identifier">tag</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-string">&quot;ruby&quot;</span>, <span class="ruby-string">&quot;python&quot;</span>]).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">u</span>)
+<span class="ruby-comment"># =&gt; true</span>
+</pre>
+          
+
+          
+          <div class="method-source-code" id="find-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 830</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">dict</span>)
+  <span class="ruby-identifier">keys</span> = <span class="ruby-identifier">filters</span>(<span class="ruby-identifier">dict</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+    <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">key</span>, <span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">MultiSet</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span>, <span class="ruby-keyword">self</span>, <span class="ruby-constant">Command</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:sinterstore</span>, *<span class="ruby-identifier">keys</span>))
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- find-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- find-method -->
+
+    
+      <div id="method-c-index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index</span><span
+            class="method-args">(attribute)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Index any method on your model. Once you index a method, you can use it in
+`find` statements.</p>
+          
+
+          
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 852</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">attribute</span>)
+  <span class="ruby-identifier">indices</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">attribute</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">indices</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">attribute</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- index-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- index-method -->
+
+    
+      <div id="method-c-key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">key</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The namespace for all the keys generated using this model.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">User</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span>
+
+<span class="ruby-constant">User</span>.<span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;User&quot;</span>
+<span class="ruby-constant">User</span>.<span class="ruby-identifier">key</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>)
+<span class="ruby-comment"># =&gt; true</span>
+
+<span class="ruby-constant">User</span>.<span class="ruby-identifier">key</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Nest</span>)
+<span class="ruby-comment"># =&gt; true</span>
+</pre>
+
+<p>To find out more about Nest, see:</p>
+
+<pre>http://github.com/soveran/nest</pre>
+          
+
+          
+          <div class="method-source-code" id="key-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 736</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">key</span>
+  <span class="ruby-ivar">@key</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Nest</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">db</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- key-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- key-method -->
+
+    
+      <div id="method-c-list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">list</span><span
+            class="method-args">(name, model)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Declare an <a href="List.html">Ohm::List</a> with the given name.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Comment</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Post</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span>
+  <span class="ruby-identifier">list</span> :<span class="ruby-identifier">comments</span>, :<span class="ruby-constant">Comment</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">p</span> = <span class="ruby-constant">Post</span>.<span class="ruby-identifier">create</span>
+<span class="ruby-identifier">p</span>.<span class="ruby-identifier">comments</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">Comment</span>.<span class="ruby-identifier">create</span>)
+<span class="ruby-identifier">p</span>.<span class="ruby-identifier">comments</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-constant">Comment</span>.<span class="ruby-identifier">create</span>)
+<span class="ruby-identifier">p</span>.<span class="ruby-identifier">comments</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
+<span class="ruby-comment"># =&gt; true</span>
+</pre>
+
+<p>Note: You can’t use the list until you save the model. If you try to do it,
+you’ll receive an <a href="MissingID.html">Ohm::MissingID</a> error.</p>
+          
+
+          
+          <div class="method-source-code" id="list-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 911</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">list</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">model</span>)
+  <span class="ruby-identifier">collections</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">name</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">collections</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">name</span>)
+
+  <span class="ruby-identifier">define_method</span> <span class="ruby-identifier">name</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">model</span> = <span class="ruby-constant">Utils</span>.<span class="ruby-identifier">const</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>, <span class="ruby-identifier">model</span>)
+
+    <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">List</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span>[<span class="ruby-identifier">name</span>], <span class="ruby-identifier">model</span>.<span class="ruby-identifier">key</span>, <span class="ruby-identifier">model</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- list-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- list-method -->
+
+    
+      <div id="method-c-lua" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lua</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="lua-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 716</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">lua</span>
+  <span class="ruby-ivar">@lua</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Lua</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Dir</span>.<span class="ruby-identifier">pwd</span>, <span class="ruby-string">&quot;lua&quot;</span>), <span class="ruby-identifier">db</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- lua-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- lua-method -->
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(atts = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initialize a model using a dictionary of attributes.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">u</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;John&quot;</span>)
+</pre>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">atts</span> = {})
+  <span class="ruby-ivar">@attributes</span> = {}
+  <span class="ruby-ivar">@_memo</span> = {}
+  <span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">atts</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+      <div id="method-c-reference" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reference</span><span
+            class="method-args">(name, model)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A macro for defining an attribute, an index, and an accessor for a given
+model.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Post</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span>
+  <span class="ruby-identifier">reference</span> :<span class="ruby-identifier">user</span>, :<span class="ruby-constant">User</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-comment"># It's the same as:</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Post</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span>
+  <span class="ruby-identifier">attribute</span> :<span class="ruby-identifier">user_id</span>
+  <span class="ruby-identifier">index</span> :<span class="ruby-identifier">user_id</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">user</span>
+    <span class="ruby-ivar">@_memo</span>[:<span class="ruby-identifier">user</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">User</span>[<span class="ruby-identifier">user_id</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">user=</span>(<span class="ruby-identifier">user</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>
+    <span class="ruby-ivar">@_memo</span>[:<span class="ruby-identifier">user</span>] = <span class="ruby-identifier">user</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">user_id=</span>(<span class="ruby-identifier">user_id</span>)
+    <span class="ruby-ivar">@_memo</span>.<span class="ruby-identifier">delete</span>(:<span class="ruby-identifier">user_id</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+          
+
+          
+          <div class="method-source-code" id="reference-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 977</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">reference</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">model</span>)
+  <span class="ruby-identifier">reader</span> = <span class="ruby-value">:&quot;#{name}_id&quot;</span>
+  <span class="ruby-identifier">writer</span> = <span class="ruby-value">:&quot;#{name}_id=&quot;</span>
+
+  <span class="ruby-identifier">index</span> <span class="ruby-identifier">reader</span>
+
+  <span class="ruby-identifier">define_method</span>(<span class="ruby-identifier">reader</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@attributes</span>[<span class="ruby-identifier">reader</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">define_method</span>(<span class="ruby-identifier">writer</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@_memo</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">name</span>)
+    <span class="ruby-ivar">@attributes</span>[<span class="ruby-identifier">reader</span>] = <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">define_method</span>(<span class="ruby-value">:&quot;#{name}=&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@_memo</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">name</span>)
+    <span class="ruby-identifier">send</span>(<span class="ruby-identifier">writer</span>, <span class="ruby-identifier">value</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">id</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">define_method</span>(<span class="ruby-identifier">name</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@_memo</span>[<span class="ruby-identifier">name</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">model</span> = <span class="ruby-constant">Utils</span>.<span class="ruby-identifier">const</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>, <span class="ruby-identifier">model</span>)
+      <span class="ruby-identifier">model</span>[<span class="ruby-identifier">send</span>(<span class="ruby-identifier">reader</span>)]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- reference-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- reference-method -->
+
+    
+      <div id="method-c-set" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set</span><span
+            class="method-args">(name, model)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Declare an <a href="Set.html">Ohm::Set</a> with the given name.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">User</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span>
+  <span class="ruby-identifier">set</span> :<span class="ruby-identifier">posts</span>, :<span class="ruby-constant">Post</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">u</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">create</span>
+<span class="ruby-identifier">u</span>.<span class="ruby-identifier">posts</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-comment"># =&gt; true</span>
+</pre>
+
+<p>Note: You can’t use the set until you save the model. If you try to do it,
+you’ll receive an <a href="MissingID.html">Ohm::MissingID</a> error.</p>
+          
+
+          
+          <div class="method-source-code" id="set-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 881</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">set</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">model</span>)
+  <span class="ruby-identifier">collections</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">name</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">collections</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">name</span>)
+
+  <span class="ruby-identifier">define_method</span> <span class="ruby-identifier">name</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">model</span> = <span class="ruby-constant">Utils</span>.<span class="ruby-identifier">const</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>, <span class="ruby-identifier">model</span>)
+
+    <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">MutableSet</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span>[<span class="ruby-identifier">name</span>], <span class="ruby-identifier">model</span>.<span class="ruby-identifier">key</span>, <span class="ruby-identifier">model</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- set-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- set-method -->
+
+    
+      <div id="method-c-to_proc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_proc</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Retrieve a set of models given an array of IDs.</p>
+
+<p>Example:</p>
+
+<pre>ids = [1, 2, 3]
+ids.map(&amp;User)</pre>
+
+<p>Note: The use of this should be a last resort for your actual application
+runtime, or for simply debugging in your console. If you care about
+performance, you should pipeline your reads. For more information checkout
+the implementation of <a
+href="Collection.html#method-i-fetch">Ohm::Collection#fetch</a>.</p>
+          
+
+          
+          <div class="method-source-code" id="to_proc-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 764</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_proc</span>
+  <span class="ruby-identifier">lambda</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">id</span><span class="ruby-operator">|</span> <span class="ruby-keyword">self</span>[<span class="ruby-identifier">id</span>] }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_proc-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_proc-method -->
+
+    
+      <div id="method-c-unique" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unique</span><span
+            class="method-args">(attribute)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a unique index for any method on your model. Once you add a unique
+index, you can use it in `with` statements.</p>
+
+<p>Note: if there is a conflict while saving, an `Ohm::UniqueIndexViolation`
+violation is raised.</p>
+          
+
+          
+          <div class="method-source-code" id="unique-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 862</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">unique</span>(<span class="ruby-identifier">attribute</span>)
+  <span class="ruby-identifier">uniques</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">attribute</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">uniques</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">attribute</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- unique-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- unique-method -->
+
+    
+      <div id="method-c-with" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with</span><span
+            class="method-args">(att, val)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Find values in `unique` indices.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">User</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span>
+  <span class="ruby-identifier">unique</span> :<span class="ruby-identifier">email</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">u</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">create</span>(:<span class="ruby-identifier">email</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;foo@bar.com&quot;</span>)
+<span class="ruby-identifier">u</span> <span class="ruby-operator">==</span> <span class="ruby-constant">User</span>.<span class="ruby-identifier">with</span>(:<span class="ruby-identifier">email</span>, <span class="ruby-string">&quot;foo@bar.com&quot;</span>)
+<span class="ruby-comment"># =&gt; true</span>
+</pre>
+          
+
+          
+          <div class="method-source-code" id="with-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 785</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">with</span>(<span class="ruby-identifier">att</span>, <span class="ruby-identifier">val</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">IndexNotFound</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">uniques</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">att</span>)
+
+  <span class="ruby-identifier">id</span> = <span class="ruby-identifier">db</span>.<span class="ruby-identifier">hget</span>(<span class="ruby-identifier">key</span>[<span class="ruby-value">:uniques</span>][<span class="ruby-identifier">att</span>], <span class="ruby-identifier">val</span>)
+  <span class="ruby-identifier">new</span>(<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">id</span>).<span class="ruby-identifier">load!</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">id</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- with-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- with-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="protected-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Protected Class Methods</h3>
+
+    
+      <div id="method-c-attributes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">attributes</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="attributes-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1426</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">attributes</span>
+  <span class="ruby-ivar">@attributes</span> <span class="ruby-operator">||=</span> []
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- attributes-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- attributes-method -->
+
+    
+      <div id="method-c-collections" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">collections</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="collections-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1422</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">collections</span>
+  <span class="ruby-ivar">@collections</span> <span class="ruby-operator">||=</span> []
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- collections-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- collections-method -->
+
+    
+      <div id="method-c-counters" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">counters</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="counters-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1418</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">counters</span>
+  <span class="ruby-ivar">@counters</span> <span class="ruby-operator">||=</span> []
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- counters-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- counters-method -->
+
+    
+      <div id="method-c-filters" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">filters</span><span
+            class="method-args">(dict)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="filters-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1430</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">filters</span>(<span class="ruby-identifier">dict</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">dict</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>,
+      <span class="ruby-string">&quot;You need to supply a hash with filters. &quot;</span> <span class="ruby-operator">+</span>
+      <span class="ruby-node">&quot;If you want to find by ID, use #{self}[id] instead.&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">dict</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">to_indices</span>(<span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>) }.<span class="ruby-identifier">flatten</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- filters-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- filters-method -->
+
+    
+      <div id="method-c-indices" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">indices</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="indices-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1410</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">indices</span>
+  <span class="ruby-ivar">@indices</span> <span class="ruby-operator">||=</span> []
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- indices-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- indices-method -->
+
+    
+      <div id="method-c-new_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new_id</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new_id-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1450</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new_id</span>
+  <span class="ruby-identifier">db</span>.<span class="ruby-identifier">incr</span>(<span class="ruby-identifier">key</span>[<span class="ruby-value">:id</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new_id-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new_id-method -->
+
+    
+      <div id="method-c-to_indices" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_indices</span><span
+            class="method-args">(att, val)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_indices-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1440</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_indices</span>(<span class="ruby-identifier">att</span>, <span class="ruby-identifier">val</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">IndexNotFound</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">indices</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">att</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Enumerable</span>)
+    <span class="ruby-identifier">val</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">key</span>[<span class="ruby-value">:indices</span>][<span class="ruby-identifier">att</span>][<span class="ruby-identifier">v</span>] }
+  <span class="ruby-keyword">else</span>
+    [<span class="ruby-identifier">key</span>[<span class="ruby-value">:indices</span>][<span class="ruby-identifier">att</span>][<span class="ruby-identifier">val</span>]]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_indices-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_indices-method -->
+
+    
+      <div id="method-c-to_reference" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_reference</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_reference-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1403</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_reference</span>
+  <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.
+    <span class="ruby-identifier">match</span>(<span class="ruby-regexp">%r^(?:.*::)*(.*)$/</span>)[<span class="ruby-value">1</span>].
+    <span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">%r([a-z\d])([A-Z])/</span>, <span class="ruby-string">'\1_\2'</span>).
+    <span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_sym</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_reference-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_reference-method -->
+
+    
+      <div id="method-c-uniques" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">uniques</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="uniques-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1414</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">uniques</span>
+  <span class="ruby-ivar">@uniques</span> <span class="ruby-operator">||=</span> []
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- uniques-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- uniques-method -->
+
+    
+    </section><!-- protected-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-3D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">==</span><span
+            class="method-args">(other)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Check for equality by doing the following assertions:</p>
+<ol><li>
+<p>That the passed model is of the same type.</p>
+</li><li>
+<p>That they represent the same Redis key.</p>
+</li></ol>
+          
+
+          
+          <div class="method-source-code" id="3D-3D-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-identifier">other</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-identifier">model</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">key</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">MissingID</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- 3D-3D-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Model.html#method-i-eql-3F">eql?</a>
+        </div>
+        
+
+        
+      </div><!-- 3D-3D-method -->
+
+    
+      <div id="method-i-__save__" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">__save__</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="__save__-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1293</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">__save__</span>
+  <span class="ruby-constant">Transaction</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">watch</span>(*<span class="ruby-identifier">_unique_keys</span>)
+
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">new?</span>
+      <span class="ruby-identifier">t</span>.<span class="ruby-identifier">watch</span>(<span class="ruby-identifier">key</span>)
+      <span class="ruby-identifier">t</span>.<span class="ruby-identifier">watch</span>(<span class="ruby-identifier">key</span>[<span class="ruby-value">:_indices</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">model</span>.<span class="ruby-identifier">indices</span>.<span class="ruby-identifier">any?</span>
+      <span class="ruby-identifier">t</span>.<span class="ruby-identifier">watch</span>(<span class="ruby-identifier">key</span>[<span class="ruby-value">:_uniques</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">model</span>.<span class="ruby-identifier">uniques</span>.<span class="ruby-identifier">any?</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">before</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">_initialize_id</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">new?</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">_uniques</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">uniques</span>  = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">_indices</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">indices</span>  = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">existing_indices</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">existing_uniques</span> = <span class="ruby-keyword">nil</span>
+
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">read</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">_verify_uniques</span>
+      <span class="ruby-identifier">existing_indices</span> = <span class="ruby-identifier">_read_attributes</span>(<span class="ruby-identifier">model</span>.<span class="ruby-identifier">indices</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">model</span>.<span class="ruby-identifier">indices</span>.<span class="ruby-identifier">any?</span>
+      <span class="ruby-identifier">existing_uniques</span> = <span class="ruby-identifier">_read_attributes</span>(<span class="ruby-identifier">model</span>.<span class="ruby-identifier">uniques</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">model</span>.<span class="ruby-identifier">uniques</span>.<span class="ruby-identifier">any?</span>
+      <span class="ruby-identifier">_uniques</span> = <span class="ruby-identifier">db</span>.<span class="ruby-identifier">hgetall</span>(<span class="ruby-identifier">key</span>[<span class="ruby-value">:_uniques</span>])
+      <span class="ruby-identifier">_indices</span> = <span class="ruby-identifier">db</span>.<span class="ruby-identifier">smembers</span>(<span class="ruby-identifier">key</span>[<span class="ruby-value">:_indices</span>])
+      <span class="ruby-identifier">uniques</span>  = <span class="ruby-identifier">_read_index_type</span>(<span class="ruby-value">:uniques</span>)
+      <span class="ruby-identifier">indices</span>  = <span class="ruby-identifier">_read_index_type</span>(<span class="ruby-value">:indices</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">write</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">db</span>.<span class="ruby-identifier">sadd</span>(<span class="ruby-identifier">model</span>.<span class="ruby-identifier">key</span>[<span class="ruby-value">:all</span>], <span class="ruby-identifier">id</span>)
+      <span class="ruby-identifier">_delete_existing_indices</span>(<span class="ruby-identifier">existing_indices</span>)
+      <span class="ruby-identifier">_delete_existing_uniques</span>(<span class="ruby-identifier">existing_uniques</span>)
+      <span class="ruby-identifier">_delete_indices</span>(<span class="ruby-identifier">_indices</span>)
+      <span class="ruby-identifier">_delete_uniques</span>(<span class="ruby-identifier">_uniques</span>)
+      <span class="ruby-identifier">_save</span>
+      <span class="ruby-identifier">_save_indices</span>(<span class="ruby-identifier">indices</span>)
+      <span class="ruby-identifier">_save_uniques</span>(<span class="ruby-identifier">uniques</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- __save__-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- __save__-method -->
+
+    
+      <div id="method-i-attributes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">attributes</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="attributes-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1215</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">attributes</span>
+  <span class="ruby-ivar">@attributes</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- attributes-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- attributes-method -->
+
+    
+      <div id="method-i-decr" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">decr</span><span
+            class="method-args">(att, count = 1)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Decrement a counter atomically. Internally uses HINCRBY.</p>
+          
+
+          
+          <div class="method-source-code" id="decr-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1194</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">decr</span>(<span class="ruby-identifier">att</span>, <span class="ruby-identifier">count</span> = <span class="ruby-value">1</span>)
+  <span class="ruby-identifier">incr</span>(<span class="ruby-identifier">att</span>, <span class="ruby-operator">-</span><span class="ruby-identifier">count</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- decr-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- decr-method -->
+
+    
+      <div id="method-i-delete" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete</span><span
+            class="method-args">() { |t| ... }</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Delete the model, including all the following keys:</p>
+<ul><li>
+<p>&lt;Model&gt;:&lt;id&gt;</p>
+</li><li>
+<p>&lt;Model&gt;:&lt;id&gt;:counters</p>
+</li><li>
+<p>&lt;Model&gt;:&lt;id&gt;:&lt;set name&gt;</p>
+</li></ul>
+
+<p>If the model has uniques or indices, they’re also cleaned up.</p>
+          
+
+          
+          <div class="method-source-code" id="delete-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1345</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete</span>
+  <span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">_uniques</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">_indices</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">existing_indices</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">existing_uniques</span> = <span class="ruby-keyword">nil</span>
+
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">watch</span>(*<span class="ruby-identifier">_unique_keys</span>)
+
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">watch</span>(<span class="ruby-identifier">key</span>)
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">watch</span>(<span class="ruby-identifier">key</span>[<span class="ruby-value">:_indices</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">model</span>.<span class="ruby-identifier">indices</span>.<span class="ruby-identifier">any?</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">watch</span>(<span class="ruby-identifier">key</span>[<span class="ruby-value">:_uniques</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">model</span>.<span class="ruby-identifier">uniques</span>.<span class="ruby-identifier">any?</span>
+
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">read</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">existing_indices</span> = <span class="ruby-identifier">_read_attributes</span>(<span class="ruby-identifier">model</span>.<span class="ruby-identifier">indices</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">model</span>.<span class="ruby-identifier">indices</span>.<span class="ruby-identifier">any?</span>
+      <span class="ruby-identifier">existing_uniques</span> = <span class="ruby-identifier">_read_attributes</span>(<span class="ruby-identifier">model</span>.<span class="ruby-identifier">uniques</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">model</span>.<span class="ruby-identifier">uniques</span>.<span class="ruby-identifier">any?</span>
+      <span class="ruby-identifier">_uniques</span> = <span class="ruby-identifier">db</span>.<span class="ruby-identifier">hgetall</span>(<span class="ruby-identifier">key</span>[<span class="ruby-value">:_uniques</span>])
+      <span class="ruby-identifier">_indices</span> = <span class="ruby-identifier">db</span>.<span class="ruby-identifier">smembers</span>(<span class="ruby-identifier">key</span>[<span class="ruby-value">:_indices</span>])
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">write</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">_delete_uniques</span>(<span class="ruby-identifier">_uniques</span>)
+      <span class="ruby-identifier">_delete_indices</span>(<span class="ruby-identifier">_indices</span>)
+      <span class="ruby-identifier">_delete_existing_uniques</span>(<span class="ruby-identifier">existing_uniques</span>)
+      <span class="ruby-identifier">_delete_existing_indices</span>(<span class="ruby-identifier">existing_indices</span>)
+      <span class="ruby-identifier">model</span>.<span class="ruby-identifier">collections</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">db</span>.<span class="ruby-identifier">del</span>(<span class="ruby-identifier">key</span>[<span class="ruby-identifier">e</span>]) }
+      <span class="ruby-identifier">db</span>.<span class="ruby-identifier">srem</span>(<span class="ruby-identifier">model</span>.<span class="ruby-identifier">key</span>[<span class="ruby-value">:all</span>], <span class="ruby-identifier">id</span>)
+      <span class="ruby-identifier">db</span>.<span class="ruby-identifier">del</span>(<span class="ruby-identifier">key</span>[<span class="ruby-value">:counters</span>])
+      <span class="ruby-identifier">db</span>.<span class="ruby-identifier">del</span>(<span class="ruby-identifier">key</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">t</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- delete-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- delete-method -->
+
+    
+      <div id="method-i-eql-3F" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">eql?</span><span
+            class="method-args">(other)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Model.html#method-i-3D-3D">==</a>
+        </div>
+        
+      </div><!-- eql-3F-method -->
+
+    
+      <div id="method-i-get" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get</span><span
+            class="method-args">(att)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Read an attribute remotely from Redis. Useful if you want to get the most
+recent value of the attribute and not rely on locally cached value.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-constant">User</span>.<span class="ruby-identifier">create</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;A&quot;</span>)
+
+<span class="ruby-constant">Session</span> <span class="ruby-value">1</span>     <span class="ruby-operator">|</span>    <span class="ruby-constant">Session</span> <span class="ruby-value">2</span>
+<span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">|</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span><span class="ruby-operator">-</span>
+<span class="ruby-identifier">u</span> = <span class="ruby-constant">User</span>[<span class="ruby-value">1</span>]   <span class="ruby-operator">|</span>    <span class="ruby-identifier">u</span> = <span class="ruby-constant">User</span>[<span class="ruby-value">1</span>]
+<span class="ruby-identifier">u</span>.<span class="ruby-identifier">name</span> = <span class="ruby-string">&quot;B&quot;</span>  <span class="ruby-operator">|</span>
+<span class="ruby-identifier">u</span>.<span class="ruby-identifier">save</span>        <span class="ruby-operator">|</span>
+              <span class="ruby-operator">|</span>    <span class="ruby-identifier">u</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;A&quot;</span>
+              <span class="ruby-operator">|</span>    <span class="ruby-identifier">u</span>.<span class="ruby-identifier">get</span>(:<span class="ruby-identifier">name</span>) <span class="ruby-operator">==</span> <span class="ruby-string">&quot;B&quot;</span>
+</pre>
+          
+
+          
+          <div class="method-source-code" id="get-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1169</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get</span>(<span class="ruby-identifier">att</span>)
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-identifier">att</span>] = <span class="ruby-identifier">db</span>.<span class="ruby-identifier">hget</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">att</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get-method -->
+
+    
+      <div id="method-i-hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hash</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return a value that allows the use of models as hash keys.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">h</span> = {}
+
+<span class="ruby-identifier">u</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>
+
+<span class="ruby-identifier">h</span>[:<span class="ruby-identifier">u</span>] = <span class="ruby-identifier">u</span>
+<span class="ruby-identifier">h</span>[:<span class="ruby-identifier">u</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">u</span>
+<span class="ruby-comment"># =&gt; true</span>
+</pre>
+          
+
+          
+          <div class="method-source-code" id="hash-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1210</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hash</span>
+  <span class="ruby-identifier">new?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">super</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- hash-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- hash-method -->
+
+    
+      <div id="method-i-id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">id</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Access the ID used to store this model. The ID is used together with the
+name of the class in order to form the Redis key.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">User</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span>; <span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">u</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">create</span>
+<span class="ruby-identifier">u</span>.<span class="ruby-identifier">id</span>
+<span class="ruby-comment"># =&gt; 1</span>
+
+<span class="ruby-identifier">u</span>.<span class="ruby-identifier">key</span>
+<span class="ruby-comment"># =&gt; User:1</span>
+</pre>
+          
+
+          
+          <div class="method-source-code" id="id-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">id</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">MissingID</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-ivar">@id</span>)
+  <span class="ruby-ivar">@id</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- id-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- id-method -->
+
+    
+      <div id="method-i-incr" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">incr</span><span
+            class="method-args">(att, count = 1)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Increment a counter atomically. Internally uses HINCRBY.</p>
+          
+
+          
+          <div class="method-source-code" id="incr-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">incr</span>(<span class="ruby-identifier">att</span>, <span class="ruby-identifier">count</span> = <span class="ruby-value">1</span>)
+  <span class="ruby-identifier">db</span>.<span class="ruby-identifier">hincrby</span>(<span class="ruby-identifier">key</span>[<span class="ruby-value">:counters</span>], <span class="ruby-identifier">att</span>, <span class="ruby-identifier">count</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- incr-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- incr-method -->
+
+    
+      <div id="method-i-key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">key</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Manipulate the Redis hash of attributes directly.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">User</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span>
+  <span class="ruby-identifier">attribute</span> :<span class="ruby-identifier">name</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">u</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">create</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;John&quot;</span>)
+<span class="ruby-identifier">u</span>.<span class="ruby-identifier">key</span>.<span class="ruby-identifier">hget</span>(:<span class="ruby-identifier">name</span>)
+<span class="ruby-comment"># =&gt; John</span>
+</pre>
+
+<p>For more details see</p>
+
+<pre>http://github.com/soveran/nest</pre>
+          
+
+          
+          <div class="method-source-code" id="key-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">key</span>
+  <span class="ruby-identifier">model</span>.<span class="ruby-identifier">key</span>[<span class="ruby-identifier">id</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- key-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- key-method -->
+
+    
+      <div id="method-i-load-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load!</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Preload all the attributes of this model from Redis. Used internally by
+`Model::[]`.</p>
+          
+
+          
+          <div class="method-source-code" id="load-21-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load!</span>
+  <span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">db</span>.<span class="ruby-identifier">hgetall</span>(<span class="ruby-identifier">key</span>)) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">new?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- load-21-method -->
+
+    
+      <div id="method-i-new-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-3F-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1184</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new?</span>
+  <span class="ruby-operator">!</span><span class="ruby-keyword">defined?</span>(<span class="ruby-ivar">@id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-3F-method -->
+
+    
+      <div id="method-i-save" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">save</span><span
+            class="method-args">(&block)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Persist the model attributes and update indices and unique indices. The
+`counter`s and `set`s are not touched during save.</p>
+
+<p>If the model is not valid, nil is returned. Otherwise, the persisted model
+is returned.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">User</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span>
+  <span class="ruby-identifier">attribute</span> :<span class="ruby-identifier">name</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">validate</span>
+    <span class="ruby-identifier">assert_present</span> :<span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">nil</span>).<span class="ruby-identifier">save</span>
+<span class="ruby-comment"># =&gt; nil</span>
+
+<span class="ruby-identifier">u</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;John&quot;</span>).<span class="ruby-identifier">save</span>
+<span class="ruby-identifier">u</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">User</span>)
+<span class="ruby-comment"># =&gt; true</span>
+</pre>
+          
+
+          
+          <div class="method-source-code" id="save-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1278</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">save</span>(&amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">valid?</span>
+  <span class="ruby-identifier">save!</span>(&amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- save-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- save-method -->
+
+    
+      <div id="method-i-save-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">save!</span><span
+            class="method-args">() { |t| ... }</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Saves the model without checking for validity. Refer to `<a
+href="Model.html#method-i-save">#save</a>` for more details.</p>
+          
+
+          
+          <div class="method-source-code" id="save-21-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1285</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">save!</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">__save__</span>
+  <span class="ruby-keyword">yield</span> <span class="ruby-identifier">t</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">commit</span>(<span class="ruby-identifier">db</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- save-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- save-21-method -->
+
+    
+      <div id="method-i-set" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set</span><span
+            class="method-args">(att, val)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Update an attribute value atomically. The best usecase for this is when you
+simply want to update one value.</p>
+
+<p>Note: This method is dangerous because it doesn’t update indices and
+uniques. Use it wisely. The safe equivalent is `update`.</p>
+          
+
+          
+          <div class="method-source-code" id="set-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1179</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set</span>(<span class="ruby-identifier">att</span>, <span class="ruby-identifier">val</span>)
+  <span class="ruby-identifier">val</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">db</span>.<span class="ruby-identifier">hdel</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">att</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">db</span>.<span class="ruby-identifier">hset</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">att</span>, <span class="ruby-identifier">val</span>)
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-identifier">att</span>] = <span class="ruby-identifier">val</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- set-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- set-method -->
+
+    
+      <div id="method-i-to_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_hash</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Export the ID and the errors of the model. The approach of <a
+href="../Ohm.html">Ohm</a> is to whitelist public attributes, as opposed to
+exporting each (possibly sensitive) attribute.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">User</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span>
+  <span class="ruby-identifier">attribute</span> :<span class="ruby-identifier">name</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">u</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">create</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;John&quot;</span>)
+<span class="ruby-identifier">u</span>.<span class="ruby-identifier">to_hash</span>
+<span class="ruby-comment"># =&gt; { :id =&gt; &quot;1&quot; }</span>
+</pre>
+
+<p>In order to add additional attributes, you can override `<a
+href="Model.html#method-i-to_hash">#to_hash</a>`:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">User</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Ohm</span><span class="ruby-operator">::</span><span class="ruby-constant">Model</span>
+  <span class="ruby-identifier">attribute</span> :<span class="ruby-identifier">name</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_hash</span>
+    <span class="ruby-keyword">super</span>.<span class="ruby-identifier">merge</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">u</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">create</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;John&quot;</span>)
+<span class="ruby-identifier">u</span>.<span class="ruby-identifier">to_hash</span>
+<span class="ruby-comment"># =&gt; { :id =&gt; &quot;1&quot;, :name =&gt; &quot;John&quot; }</span>
+</pre>
+          
+
+          
+          <div class="method-source-code" id="to_hash-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1247</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_hash</span>
+  <span class="ruby-identifier">attrs</span> = {}
+  <span class="ruby-identifier">attrs</span>[<span class="ruby-value">:id</span>] = <span class="ruby-identifier">id</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">new?</span>
+  <span class="ruby-identifier">attrs</span>[<span class="ruby-value">:errors</span>] = <span class="ruby-identifier">errors</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">any?</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">attrs</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_hash-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_hash-method -->
+
+    
+      <div id="method-i-to_json" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_json</span><span
+            class="method-args">(*args)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Export a JSON representation of the model by encoding `<a
+href="Model.html#method-i-to_hash">#to_hash</a>`.</p>
+          
+
+          
+          <div class="method-source-code" id="to_json-source">
+            <pre><span class="ruby-comment"># File lib/ohm/json.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_json</span>(*<span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">to_hash</span>.<span class="ruby-identifier">to_json</span>(*<span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_json-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_json-method -->
+
+    
+      <div id="method-i-update" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update</span><span
+            class="method-args">(attributes)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Update the model attributes and call save.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-constant">User</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">update</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;John&quot;</span>)
+
+<span class="ruby-comment"># It's the same as:</span>
+
+<span class="ruby-identifier">u</span> = <span class="ruby-constant">User</span>[<span class="ruby-value">1</span>]
+<span class="ruby-identifier">u</span>.<span class="ruby-identifier">update_attributes</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;John&quot;</span>)
+<span class="ruby-identifier">u</span>.<span class="ruby-identifier">save</span>
+</pre>
+          
+
+          
+          <div class="method-source-code" id="update-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1392</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>(<span class="ruby-identifier">attributes</span>)
+  <span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">attributes</span>)
+  <span class="ruby-identifier">save</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- update-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- update-method -->
+
+    
+      <div id="method-i-update_attributes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_attributes</span><span
+            class="method-args">(atts)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Write the dictionary of key-value pairs to the model.</p>
+          
+
+          
+          <div class="method-source-code" id="update_attributes-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1398</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">atts</span>)
+  <span class="ruby-identifier">atts</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">att</span>, <span class="ruby-identifier">val</span><span class="ruby-operator">|</span> <span class="ruby-identifier">send</span>(<span class="ruby-value">:&quot;#{att}=&quot;</span>, <span class="ruby-identifier">val</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- update_attributes-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- update_attributes-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Protected Instance Methods</h3>
+
+    
+      <div id="method-i-_delete_existing_indices" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_delete_existing_indices</span><span
+            class="method-args">(existing)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_delete_existing_indices-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1533</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_delete_existing_indices</span>(<span class="ruby-identifier">existing</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">existing</span>
+
+  <span class="ruby-identifier">existing</span> = <span class="ruby-identifier">existing</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-identifier">model</span>.<span class="ruby-identifier">to_indices</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>) }
+  <span class="ruby-identifier">existing</span>.<span class="ruby-identifier">flatten!</span>(<span class="ruby-value">1</span>)
+
+  <span class="ruby-identifier">_delete_indices</span>(<span class="ruby-identifier">existing</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- _delete_existing_indices-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- _delete_existing_indices-method -->
+
+    
+      <div id="method-i-_delete_existing_uniques" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_delete_existing_uniques</span><span
+            class="method-args">(existing)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_delete_existing_uniques-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1542</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_delete_existing_uniques</span>(<span class="ruby-identifier">existing</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">existing</span>
+
+  <span class="ruby-identifier">_delete_uniques</span>(<span class="ruby-identifier">existing</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    [<span class="ruby-identifier">model</span>.<span class="ruby-identifier">key</span>[<span class="ruby-value">:uniques</span>][<span class="ruby-identifier">key</span>], <span class="ruby-identifier">value</span>]
+  })
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- _delete_existing_uniques-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- _delete_existing_uniques-method -->
+
+    
+      <div id="method-i-_delete_indices" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_delete_indices</span><span
+            class="method-args">(indices)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_delete_indices-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1550</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_delete_indices</span>(<span class="ruby-identifier">indices</span>)
+  <span class="ruby-identifier">indices</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">db</span>.<span class="ruby-identifier">srem</span>(<span class="ruby-identifier">index</span>, <span class="ruby-identifier">id</span>)
+    <span class="ruby-identifier">db</span>.<span class="ruby-identifier">srem</span>(<span class="ruby-identifier">key</span>[<span class="ruby-value">:_indices</span>], <span class="ruby-identifier">index</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- _delete_indices-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- _delete_indices-method -->
+
+    
+      <div id="method-i-_delete_uniques" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_delete_uniques</span><span
+            class="method-args">(uniques)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_delete_uniques-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1526</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_delete_uniques</span>(<span class="ruby-identifier">uniques</span>)
+  <span class="ruby-identifier">uniques</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">unique</span>, <span class="ruby-identifier">val</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">db</span>.<span class="ruby-identifier">hdel</span>(<span class="ruby-identifier">unique</span>, <span class="ruby-identifier">val</span>)
+    <span class="ruby-identifier">db</span>.<span class="ruby-identifier">hdel</span>(<span class="ruby-identifier">key</span>[<span class="ruby-value">:_uniques</span>], <span class="ruby-identifier">unique</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- _delete_uniques-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- _delete_uniques-method -->
+
+    
+      <div id="method-i-_detect_duplicate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_detect_duplicate</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_detect_duplicate-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1500</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_detect_duplicate</span>
+  <span class="ruby-identifier">model</span>.<span class="ruby-identifier">uniques</span>.<span class="ruby-identifier">detect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">att</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">id</span> = <span class="ruby-identifier">db</span>.<span class="ruby-identifier">hget</span>(<span class="ruby-identifier">model</span>.<span class="ruby-identifier">key</span>[<span class="ruby-value">:uniques</span>][<span class="ruby-identifier">att</span>], <span class="ruby-identifier">send</span>(<span class="ruby-identifier">att</span>))
+    <span class="ruby-identifier">id</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">id</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- _detect_duplicate-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- _detect_duplicate-method -->
+
+    
+      <div id="method-i-_initialize_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_initialize_id</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_initialize_id-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1469</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_initialize_id</span>
+  <span class="ruby-ivar">@id</span> = <span class="ruby-identifier">model</span>.<span class="ruby-identifier">new_id</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- _initialize_id-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- _initialize_id-method -->
+
+    
+      <div id="method-i-_read_attributes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_read_attributes</span><span
+            class="method-args">(attrs)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_read_attributes-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1568</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_read_attributes</span>(<span class="ruby-identifier">attrs</span>)
+  <span class="ruby-constant">Hash</span>[<span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">zip</span>(<span class="ruby-identifier">db</span>.<span class="ruby-identifier">hmget</span>(<span class="ruby-identifier">key</span>, *<span class="ruby-identifier">attrs</span>))]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- _read_attributes-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- _read_attributes-method -->
+
+    
+      <div id="method-i-_read_index_type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_read_index_type</span><span
+            class="method-args">(type)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_read_index_type-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1507</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_read_index_type</span>(<span class="ruby-identifier">type</span>)
+  {}.<span class="ruby-identifier">tap</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ret</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">model</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">type</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">att</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">ret</span>[<span class="ruby-identifier">att</span>] = <span class="ruby-identifier">send</span>(<span class="ruby-identifier">att</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- _read_index_type-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- _read_index_type-method -->
+
+    
+      <div id="method-i-_save" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_save</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_save-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1487</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_save</span>
+  <span class="ruby-identifier">catch</span> <span class="ruby-value">:empty</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">db</span>.<span class="ruby-identifier">del</span>(<span class="ruby-identifier">key</span>)
+    <span class="ruby-identifier">db</span>.<span class="ruby-identifier">hmset</span>(<span class="ruby-identifier">key</span>, *<span class="ruby-identifier">_skip_empty</span>(<span class="ruby-identifier">attributes</span>).<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">flatten</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- _save-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- _save-method -->
+
+    
+      <div id="method-i-_save_indices" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_save_indices</span><span
+            class="method-args">(indices)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_save_indices-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1557</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_save_indices</span>(<span class="ruby-identifier">indices</span>)
+  <span class="ruby-identifier">attrs</span> = <span class="ruby-identifier">model</span>.<span class="ruby-identifier">attributes</span>
+
+  <span class="ruby-identifier">indices</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">att</span>, <span class="ruby-identifier">val</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">model</span>.<span class="ruby-identifier">to_indices</span>(<span class="ruby-identifier">att</span>, <span class="ruby-identifier">val</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">db</span>.<span class="ruby-identifier">sadd</span>(<span class="ruby-identifier">index</span>, <span class="ruby-identifier">id</span>)
+      <span class="ruby-identifier">db</span>.<span class="ruby-identifier">sadd</span>(<span class="ruby-identifier">key</span>[<span class="ruby-value">:_indices</span>], <span class="ruby-identifier">index</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">att</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- _save_indices-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- _save_indices-method -->
+
+    
+      <div id="method-i-_save_uniques" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_save_uniques</span><span
+            class="method-args">(uniques)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_save_uniques-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1515</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_save_uniques</span>(<span class="ruby-identifier">uniques</span>)
+  <span class="ruby-identifier">attrs</span> = <span class="ruby-identifier">model</span>.<span class="ruby-identifier">attributes</span>
+
+  <span class="ruby-identifier">uniques</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">att</span>, <span class="ruby-identifier">val</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">unique</span> = <span class="ruby-identifier">model</span>.<span class="ruby-identifier">key</span>[<span class="ruby-value">:uniques</span>][<span class="ruby-identifier">att</span>]
+
+    <span class="ruby-identifier">db</span>.<span class="ruby-identifier">hset</span>(<span class="ruby-identifier">unique</span>, <span class="ruby-identifier">val</span>, <span class="ruby-identifier">id</span>)
+    <span class="ruby-identifier">db</span>.<span class="ruby-identifier">hset</span>(<span class="ruby-identifier">key</span>[<span class="ruby-value">:_uniques</span>], <span class="ruby-identifier">unique</span>, <span class="ruby-identifier">val</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">att</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- _save_uniques-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- _save_uniques-method -->
+
+    
+      <div id="method-i-_skip_empty" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_skip_empty</span><span
+            class="method-args">(atts)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_skip_empty-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1473</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_skip_empty</span>(<span class="ruby-identifier">atts</span>)
+  {}.<span class="ruby-identifier">tap</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ret</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">atts</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">att</span>, <span class="ruby-identifier">val</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">ret</span>[<span class="ruby-identifier">att</span>] = <span class="ruby-identifier">send</span>(<span class="ruby-identifier">att</span>).<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">throw</span> <span class="ruby-value">:empty</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">ret</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- _skip_empty-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- _skip_empty-method -->
+
+    
+      <div id="method-i-_unique_keys" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_unique_keys</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_unique_keys-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1483</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_unique_keys</span>
+  <span class="ruby-identifier">model</span>.<span class="ruby-identifier">uniques</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">att</span><span class="ruby-operator">|</span> <span class="ruby-identifier">model</span>.<span class="ruby-identifier">key</span>[<span class="ruby-value">:uniques</span>][<span class="ruby-identifier">att</span>] }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- _unique_keys-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- _unique_keys-method -->
+
+    
+      <div id="method-i-_verify_uniques" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_verify_uniques</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_verify_uniques-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1494</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_verify_uniques</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">att</span> = <span class="ruby-identifier">_detect_duplicate</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">UniqueIndexViolation</span>, <span class="ruby-node">&quot;#{att} is not unique.&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- _verify_uniques-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- _verify_uniques-method -->
+
+    
+      <div id="method-i-db" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">db</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="db-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1465</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">db</span>
+  <span class="ruby-identifier">model</span>.<span class="ruby-identifier">db</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- db-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- db-method -->
+
+    
+      <div id="method-i-model" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">model</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="model-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1461</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">model</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- model-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- model-method -->
+
+    
+      <div id="method-i-transaction" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transaction</span><span
+            class="method-args">() { |t| ... }</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="transaction-source">
+            <pre><span class="ruby-comment"># File lib/ohm.rb, line 1456</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">transaction</span>
+  <span class="ruby-identifier">txn</span> = <span class="ruby-constant">Transaction</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">t</span> }
+  <span class="ruby-identifier">txn</span>.<span class="ruby-identifier">commit</span>(<span class="ruby-identifier">db</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- transaction-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- transaction-method -->
+
+    
+    </section><!-- protected-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>Table of Contents - redis-3.0.4 Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body class="indexpage">
+<h1>Table of Contents - redis-3.0.4 Documentation</h1>
+
+
+<h2 id="classes">Classes/Modules</h2>
+<ul>
+  <li class="class">
+    <a href="Redis.html">Redis</a>
+  </li>
+    <li class="class">
+    <a href="Redis/BaseConnectionError.html">Redis::BaseConnectionError</a>
+  </li>
+    <li class="class">
+    <a href="Redis/BaseError.html">Redis::BaseError</a>
+  </li>
+    <li class="class">
+    <a href="Redis/BasicObject.html">Redis::BasicObject</a>
+  </li>
+    <li class="class">
+    <a href="Redis/CannotConnectError.html">Redis::CannotConnectError</a>
+  </li>
+    <li class="class">
+    <a href="Redis/Client.html">Redis::Client</a>
+  </li>
+    <li class="class">
+    <a href="Redis/CommandError.html">Redis::CommandError</a>
+  </li>
+    <li class="module">
+    <a href="Redis/Connection.html">Redis::Connection</a>
+  </li>
+    <li class="module">
+    <a href="Redis/Connection/CommandHelper.html">Redis::Connection::CommandHelper</a>
+  </li>
+    <li class="class">
+    <a href="Redis/Connection/Hiredis.html">Redis::Connection::Hiredis</a>
+  </li>
+    <li class="class">
+    <a href="Redis/Connection/RedisClient.html">Redis::Connection::RedisClient</a>
+  </li>
+    <li class="class">
+    <a href="Redis/Connection/Ruby.html">Redis::Connection::Ruby</a>
+  </li>
+    <li class="module">
+    <a href="Redis/Connection/SocketMixin.html">Redis::Connection::SocketMixin</a>
+  </li>
+    <li class="class">
+    <a href="Redis/Connection/Synchrony.html">Redis::Connection::Synchrony</a>
+  </li>
+    <li class="class">
+    <a href="Redis/Connection/TCPSocket.html">Redis::Connection::TCPSocket</a>
+  </li>
+    <li class="class">
+    <a href="Redis/Connection/UNIXSocket.html">Redis::Connection::UNIXSocket</a>
+  </li>
+    <li class="class">
+    <a href="Redis/ConnectionError.html">Redis::ConnectionError</a>
+  </li>
+    <li class="class">
+    <a href="Redis/Distributed.html">Redis::Distributed</a>
+  </li>
+    <li class="class">
+    <a href="Redis/Distributed/CannotDistribute.html">Redis::Distributed::CannotDistribute</a>
+  </li>
+    <li class="class">
+    <a href="Redis/Future.html">Redis::Future</a>
+  </li>
+    <li class="class">
+    <a href="Redis/FutureNotReady.html">Redis::FutureNotReady</a>
+  </li>
+    <li class="class">
+    <a href="Redis/HashRing.html">Redis::HashRing</a>
+  </li>
+    <li class="class">
+    <a href="Redis/InheritedError.html">Redis::InheritedError</a>
+  </li>
+    <li class="class">
+    <a href="Redis/Pipeline.html">Redis::Pipeline</a>
+  </li>
+    <li class="class">
+    <a href="Redis/Pipeline/Multi.html">Redis::Pipeline::Multi</a>
+  </li>
+    <li class="class">
+    <a href="Redis/ProtocolError.html">Redis::ProtocolError</a>
+  </li>
+    <li class="class">
+    <a href="Redis/SubscribedClient.html">Redis::SubscribedClient</a>
+  </li>
+    <li class="class">
+    <a href="Redis/Subscription.html">Redis::Subscription</a>
+  </li>
+    <li class="class">
+    <a href="Redis/TimeoutError.html">Redis::TimeoutError</a>
+  </li>
+  
+</ul>
+
+<h2 id="methods">Methods</h2>
+<ul>
+  
+    <li class="method"><a href="Redis/HashRing.html#method-c-binary_search">::binary_search &mdash; Redis::HashRing</a>
+  
+    <li class="method"><a href="Redis/Connection/TCPSocket.html#method-c-connect">::connect &mdash; Redis::Connection::TCPSocket</a>
+  
+    <li class="method"><a href="Redis/Connection/Ruby.html#method-c-connect">::connect &mdash; Redis::Connection::Ruby</a>
+  
+    <li class="method"><a href="Redis/Connection/UNIXSocket.html#method-c-connect">::connect &mdash; Redis::Connection::UNIXSocket</a>
+  
+    <li class="method"><a href="Redis.html#method-c-connect">::connect &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Connection/Synchrony.html#method-c-connect">::connect &mdash; Redis::Connection::Synchrony</a>
+  
+    <li class="method"><a href="Redis/Connection/Hiredis.html#method-c-connect">::connect &mdash; Redis::Connection::Hiredis</a>
+  
+    <li class="method"><a href="Redis.html#method-c-current">::current &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-c-current-3D">::current= &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-c-deprecate">::deprecate &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Connection.html#method-c-drivers">::drivers &mdash; Redis::Connection</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-c-new">::new &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-c-new">::new &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Subscription.html#method-c-new">::new &mdash; Redis::Subscription</a>
+  
+    <li class="method"><a href="Redis/SubscribedClient.html#method-c-new">::new &mdash; Redis::SubscribedClient</a>
+  
+    <li class="method"><a href="Redis/Connection/Ruby.html#method-c-new">::new &mdash; Redis::Connection::Ruby</a>
+  
+    <li class="method"><a href="Redis/ProtocolError.html#method-c-new">::new &mdash; Redis::ProtocolError</a>
+  
+    <li class="method"><a href="Redis/Future.html#method-c-new">::new &mdash; Redis::Future</a>
+  
+    <li class="method"><a href="Redis/Distributed/CannotDistribute.html#method-c-new">::new &mdash; Redis::Distributed::CannotDistribute</a>
+  
+    <li class="method"><a href="Redis/HashRing.html#method-c-new">::new &mdash; Redis::HashRing</a>
+  
+    <li class="method"><a href="Redis/Connection/Synchrony.html#method-c-new">::new &mdash; Redis::Connection::Synchrony</a>
+  
+    <li class="method"><a href="Redis.html#method-c-new">::new &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Connection/Hiredis.html#method-c-new">::new &mdash; Redis::Connection::Hiredis</a>
+  
+    <li class="method"><a href="Redis/Connection/SocketMixin.html#method-c-new">::new &mdash; Redis::Connection::SocketMixin</a>
+  
+    <li class="method"><a href="Redis/FutureNotReady.html#method-c-new">::new &mdash; Redis::FutureNotReady</a>
+  
+    <li class="method"><a href="Redis/Pipeline.html#method-c-new">::new &mdash; Redis::Pipeline</a>
+  
+    <li class="method"><a href="Redis.html#method-i-5B-5D">#[] &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-5B-5D">#[] &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-5B-5D-3D">#[]= &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-5B-5D-3D">#[]= &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-_bpop">#_bpop &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-_bpop">#_bpop &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Future.html#method-i-_command">#_command &mdash; Redis::Future</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-_eval">#_eval &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-_eval">#_eval &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-_parse_driver">#_parse_driver &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-_parse_options">#_parse_options &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Connection/UNIXSocket.html#method-i-_read_from_socket">#_read_from_socket &mdash; Redis::Connection::UNIXSocket</a>
+  
+    <li class="method"><a href="Redis/Connection/SocketMixin.html#method-i-_read_from_socket">#_read_from_socket &mdash; Redis::Connection::SocketMixin</a>
+  
+    <li class="method"><a href="Redis/Future.html#method-i-_set">#_set &mdash; Redis::Future</a>
+  
+    <li class="method"><a href="Redis/HashRing.html#method-i-add_node">#add_node &mdash; Redis::HashRing</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-add_node">#add_node &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-append">#append &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-append">#append &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-auth">#auth &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-bgrewriteaof">#bgrewriteaof &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-bgsave">#bgsave &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-bgsave">#bgsave &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-bitcount">#bitcount &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-bitcount">#bitcount &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-bitop">#bitop &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-bitop">#bitop &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-blpop">#blpop &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-blpop">#blpop &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-brpop">#brpop &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-brpop">#brpop &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-brpoplpush">#brpoplpush &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-brpoplpush">#brpoplpush &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Connection/CommandHelper.html#method-i-build_command">#build_command &mdash; Redis::Connection::CommandHelper</a>
+  
+    <li class="method"><a href="Redis/Pipeline.html#method-i-call">#call &mdash; Redis::Pipeline</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-call">#call &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/SubscribedClient.html#method-i-call">#call &mdash; Redis::SubscribedClient</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-call_loop">#call_loop &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Pipeline.html#method-i-call_pipeline">#call_pipeline &mdash; Redis::Pipeline</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-call_pipeline">#call_pipeline &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-call_pipelined">#call_pipelined &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-call_with_timeout">#call_with_timeout &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-call_without_timeout">#call_without_timeout &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Future.html#method-i-class">#class &mdash; Redis::Future</a>
+  
+    <li class="method"><a href="Redis/Pipeline.html#method-i-commands">#commands &mdash; Redis::Pipeline</a>
+  
+    <li class="method"><a href="Redis/Pipeline/Multi.html#method-i-commands">#commands &mdash; Redis::Pipeline::Multi</a>
+  
+    <li class="method"><a href="Redis.html#method-i-config">#config &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-connect">#connect &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Connection/Synchrony.html#method-i-connected-3F">#connected? &mdash; Redis::Connection::Synchrony</a>
+  
+    <li class="method"><a href="Redis/Connection/RedisClient.html#method-i-connected-3F">#connected? &mdash; Redis::Connection::RedisClient</a>
+  
+    <li class="method"><a href="Redis/Connection/Hiredis.html#method-i-connected-3F">#connected? &mdash; Redis::Connection::Hiredis</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-connected-3F">#connected? &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Connection/Ruby.html#method-i-connected-3F">#connected? &mdash; Redis::Connection::Ruby</a>
+  
+    <li class="method"><a href="Redis/Connection/RedisClient.html#method-i-connection_completed">#connection_completed &mdash; Redis::Connection::RedisClient</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-db">#db &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-db-3D">#db= &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-dbsize">#dbsize &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-dbsize">#dbsize &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-debug">#debug &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-decr">#decr &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-decr">#decr &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-decrby">#decrby &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-decrby">#decrby &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-del">#del &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-del">#del &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-discard">#discard &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-discard">#discard &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Connection/Synchrony.html#method-i-disconnect">#disconnect &mdash; Redis::Connection::Synchrony</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-disconnect">#disconnect &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Connection/Ruby.html#method-i-disconnect">#disconnect &mdash; Redis::Connection::Ruby</a>
+  
+    <li class="method"><a href="Redis/Connection/Hiredis.html#method-i-disconnect">#disconnect &mdash; Redis::Connection::Hiredis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-dump">#dump &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-dump">#dump &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-echo">#echo &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-echo">#echo &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Connection/CommandHelper.html#method-i-encode">#encode &mdash; Redis::Connection::CommandHelper</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-ensure_connected">#ensure_connected &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-ensure_same_node">#ensure_same_node &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-establish_connection">#establish_connection &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis.html#method-i-eval">#eval &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-eval">#eval &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-evalsha">#evalsha &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-evalsha">#evalsha &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-exec">#exec &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-exec">#exec &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-exists">#exists &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-exists">#exists &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-expire">#expire &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-expire">#expire &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-expireat">#expireat &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-expireat">#expireat &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Pipeline.html#method-i-finish">#finish &mdash; Redis::Pipeline</a>
+  
+    <li class="method"><a href="Redis/Pipeline/Multi.html#method-i-finish">#finish &mdash; Redis::Pipeline::Multi</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-flushall">#flushall &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-flushall">#flushall &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-flushdb">#flushdb &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-flushdb">#flushdb &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Connection/Ruby.html#method-i-format_bulk_reply">#format_bulk_reply &mdash; Redis::Connection::Ruby</a>
+  
+    <li class="method"><a href="Redis/Connection/Ruby.html#method-i-format_error_reply">#format_error_reply &mdash; Redis::Connection::Ruby</a>
+  
+    <li class="method"><a href="Redis/Connection/Ruby.html#method-i-format_integer_reply">#format_integer_reply &mdash; Redis::Connection::Ruby</a>
+  
+    <li class="method"><a href="Redis/Connection/Ruby.html#method-i-format_multi_bulk_reply">#format_multi_bulk_reply &mdash; Redis::Connection::Ruby</a>
+  
+    <li class="method"><a href="Redis/Connection/Ruby.html#method-i-format_reply">#format_reply &mdash; Redis::Connection::Ruby</a>
+  
+    <li class="method"><a href="Redis/Connection/Ruby.html#method-i-format_status_reply">#format_status_reply &mdash; Redis::Connection::Ruby</a>
+  
+    <li class="method"><a href="Redis.html#method-i-get">#get &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-get">#get &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/HashRing.html#method-i-get_node">#get_node &mdash; Redis::HashRing</a>
+  
+    <li class="method"><a href="Redis/HashRing.html#method-i-get_node_pos">#get_node_pos &mdash; Redis::HashRing</a>
+  
+    <li class="method"><a href="Redis/Connection/Ruby.html#method-i-get_tcp_keepalive">#get_tcp_keepalive &mdash; Redis::Connection::Ruby</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-getbit">#getbit &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-getbit">#getbit &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-getrange">#getrange &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-getrange">#getrange &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Connection/SocketMixin.html#method-i-gets">#gets &mdash; Redis::Connection::SocketMixin</a>
+  
+    <li class="method"><a href="Redis.html#method-i-getset">#getset &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-getset">#getset &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-hdel">#hdel &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-hdel">#hdel &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-hexists">#hexists &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-hexists">#hexists &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-hget">#hget &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-hget">#hget &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-hgetall">#hgetall &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-hgetall">#hgetall &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-hincrby">#hincrby &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-hincrby">#hincrby &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-hincrbyfloat">#hincrbyfloat &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-hincrbyfloat">#hincrbyfloat &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-hkeys">#hkeys &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-hkeys">#hkeys &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-hlen">#hlen &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-hlen">#hlen &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-hmget">#hmget &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-hmget">#hmget &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-hmset">#hmset &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-hmset">#hmset &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-host">#host &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis.html#method-i-hset">#hset &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-hset">#hset &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-hsetnx">#hsetnx &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-hsetnx">#hsetnx &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-hvals">#hvals &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-hvals">#hvals &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-id">#id &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis.html#method-i-id">#id &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-incr">#incr &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-incr">#incr &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-incrby">#incrby &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-incrby">#incrby &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-incrbyfloat">#incrbyfloat &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-incrbyfloat">#incrbyfloat &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-info">#info &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-info">#info &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Future.html#method-i-inspect">#inspect &mdash; Redis::Future</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-inspect">#inspect &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-inspect">#inspect &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-io">#io &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Future.html#method-i-is_a-3F">#is_a? &mdash; Redis::Future</a>
+  
+    <li class="method"><a href="Redis/HashRing.html#method-i-iter_nodes">#iter_nodes &mdash; Redis::HashRing</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-key_tag">#key_tag &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-keys">#keys &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-keys">#keys &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-lastsave">#lastsave &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-lastsave">#lastsave &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-lindex">#lindex &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-lindex">#lindex &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-linsert">#linsert &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-linsert">#linsert &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-llen">#llen &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-llen">#llen &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-location">#location &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-logging">#logging &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-lpop">#lpop &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-lpop">#lpop &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-lpush">#lpush &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-lpush">#lpush &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-lpushx">#lpushx &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-lpushx">#lpushx &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-lrange">#lrange &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-lrange">#lrange &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-lrem">#lrem &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-lrem">#lrem &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-lset">#lset &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-lset">#lset &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-ltrim">#ltrim &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-ltrim">#ltrim &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-mapped_hmget">#mapped_hmget &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-mapped_hmget">#mapped_hmget &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-mapped_hmset">#mapped_hmset &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-mapped_hmset">#mapped_hmset &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-mapped_mget">#mapped_mget &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-mapped_mget">#mapped_mget &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-mapped_mset">#mapped_mset &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-mapped_mset">#mapped_mset &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-mapped_msetnx">#mapped_msetnx &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-mapped_msetnx">#mapped_msetnx &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed/CannotDistribute.html#method-i-message">#message &mdash; Redis::Distributed::CannotDistribute</a>
+  
+    <li class="method"><a href="Redis/Subscription.html#method-i-message">#message &mdash; Redis::Subscription</a>
+  
+    <li class="method"><a href="Redis.html#method-i-method_missing">#method_missing &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-mget">#mget &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-mget">#mget &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-monitor">#monitor &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-monitor">#monitor &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-move">#move &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-move">#move &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-mset">#mset &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-mset">#mset &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-msetnx">#msetnx &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-msetnx">#msetnx &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-multi">#multi &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-multi">#multi &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-node_for">#node_for &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-node_index_for">#node_index_for &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-nodes">#nodes &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-object">#object &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-on_each_node">#on_each_node &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-password">#password &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-path">#path &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis.html#method-i-persist">#persist &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-persist">#persist &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-pexpire">#pexpire &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-pexpire">#pexpire &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-pexpireat">#pexpireat &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-pexpireat">#pexpireat &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-ping">#ping &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-ping">#ping &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-pipelined">#pipelined &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-pipelined">#pipelined &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Subscription.html#method-i-pmessage">#pmessage &mdash; Redis::Subscription</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-port">#port &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Connection/RedisClient.html#method-i-post_init">#post_init &mdash; Redis::Connection::RedisClient</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-process">#process &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis.html#method-i-psetex">#psetex &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-psetex">#psetex &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Subscription.html#method-i-psubscribe">#psubscribe &mdash; Redis::Subscription</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-psubscribe">#psubscribe &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-psubscribe">#psubscribe &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/SubscribedClient.html#method-i-psubscribe">#psubscribe &mdash; Redis::SubscribedClient</a>
+  
+    <li class="method"><a href="Redis.html#method-i-pttl">#pttl &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-pttl">#pttl &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-publish">#publish &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-publish">#publish &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/SubscribedClient.html#method-i-punsubscribe">#punsubscribe &mdash; Redis::SubscribedClient</a>
+  
+    <li class="method"><a href="Redis/Subscription.html#method-i-punsubscribe">#punsubscribe &mdash; Redis::Subscription</a>
+  
+    <li class="method"><a href="Redis.html#method-i-punsubscribe">#punsubscribe &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-punsubscribe">#punsubscribe &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-quit">#quit &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-quit">#quit &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-randomkey">#randomkey &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-randomkey">#randomkey &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Connection/Ruby.html#method-i-read">#read &mdash; Redis::Connection::Ruby</a>
+  
+    <li class="method"><a href="Redis/Connection/RedisClient.html#method-i-read">#read &mdash; Redis::Connection::RedisClient</a>
+  
+    <li class="method"><a href="Redis/Connection/SocketMixin.html#method-i-read">#read &mdash; Redis::Connection::SocketMixin</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-read">#read &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Connection/Hiredis.html#method-i-read">#read &mdash; Redis::Connection::Hiredis</a>
+  
+    <li class="method"><a href="Redis/Connection/Synchrony.html#method-i-read">#read &mdash; Redis::Connection::Synchrony</a>
+  
+    <li class="method"><a href="Redis/Connection/RedisClient.html#method-i-receive_data">#receive_data &mdash; Redis::Connection::RedisClient</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-reconnect">#reconnect &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/HashRing.html#method-i-remove_node">#remove_node &mdash; Redis::HashRing</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-rename">#rename &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-rename">#rename &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-renamenx">#renamenx &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-renamenx">#renamenx &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-restore">#restore &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-restore">#restore &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-rpop">#rpop &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-rpop">#rpop &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-rpoplpush">#rpoplpush &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-rpoplpush">#rpoplpush &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-rpush">#rpush &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-rpush">#rpush &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-rpushx">#rpushx &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-rpushx">#rpushx &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-sadd">#sadd &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-sadd">#sadd &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-save">#save &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-save">#save &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-scard">#scard &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-scard">#scard &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-scheme">#scheme &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis.html#method-i-script">#script &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-script">#script &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-sdiff">#sdiff &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-sdiff">#sdiff &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-sdiffstore">#sdiffstore &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-sdiffstore">#sdiffstore &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-select">#select &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-select">#select &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Connection/RedisClient.html#method-i-send">#send &mdash; Redis::Connection::RedisClient</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-set">#set &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-set">#set &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Connection/Ruby.html#method-i-set_tcp_keepalive">#set_tcp_keepalive &mdash; Redis::Connection::Ruby</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-setbit">#setbit &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-setbit">#setbit &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-setex">#setex &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-setex">#setex &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-setnx">#setnx &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-setnx">#setnx &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-setrange">#setrange &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-setrange">#setrange &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-shutdown">#shutdown &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Pipeline.html#method-i-shutdown-3F">#shutdown? &mdash; Redis::Pipeline</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-sinter">#sinter &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-sinter">#sinter &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-sinterstore">#sinterstore &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-sinterstore">#sinterstore &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-sismember">#sismember &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-sismember">#sismember &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-slaveof">#slaveof &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-slowlog">#slowlog &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-smembers">#smembers &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-smembers">#smembers &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-smove">#smove &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-smove">#smove &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-sort">#sort &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-sort">#sort &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-spop">#spop &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-spop">#spop &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-srandmember">#srandmember &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-srandmember">#srandmember &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-srem">#srem &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-srem">#srem &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-strlen">#strlen &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-strlen">#strlen &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-subscribe">#subscribe &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/SubscribedClient.html#method-i-subscribe">#subscribe &mdash; Redis::SubscribedClient</a>
+  
+    <li class="method"><a href="Redis/Subscription.html#method-i-subscribe">#subscribe &mdash; Redis::Subscription</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-subscribe">#subscribe &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-subscribed-3F">#subscribed? &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-subscribed-3F">#subscribed? &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/SubscribedClient.html#method-i-subscription">#subscription &mdash; Redis::SubscribedClient</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-sunion">#sunion &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-sunion">#sunion &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-sunionstore">#sunionstore &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-sunionstore">#sunionstore &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-sync">#sync &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-synchronize">#synchronize &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-time">#time &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-time">#time &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-timeout">#timeout &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Connection/Hiredis.html#method-i-timeout-3D">#timeout= &mdash; Redis::Connection::Hiredis</a>
+  
+    <li class="method"><a href="Redis/Connection/Ruby.html#method-i-timeout-3D">#timeout= &mdash; Redis::Connection::Ruby</a>
+  
+    <li class="method"><a href="Redis/Connection/SocketMixin.html#method-i-timeout-3D">#timeout= &mdash; Redis::Connection::SocketMixin</a>
+  
+    <li class="method"><a href="Redis/Connection/Synchrony.html#method-i-timeout-3D">#timeout= &mdash; Redis::Connection::Synchrony</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-ttl">#ttl &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-ttl">#ttl &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-type">#type &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-type">#type &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Connection/RedisClient.html#method-i-unbind">#unbind &mdash; Redis::Connection::RedisClient</a>
+  
+    <li class="method"><a href="Redis/SubscribedClient.html#method-i-unsubscribe">#unsubscribe &mdash; Redis::SubscribedClient</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-unsubscribe">#unsubscribe &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Subscription.html#method-i-unsubscribe">#unsubscribe &mdash; Redis::Subscription</a>
+  
+    <li class="method"><a href="Redis.html#method-i-unsubscribe">#unsubscribe &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-unwatch">#unwatch &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-unwatch">#unwatch &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Future.html#method-i-value">#value &mdash; Redis::Future</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-watch">#watch &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-watch">#watch &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Pipeline.html#method-i-with_reconnect">#with_reconnect &mdash; Redis::Pipeline</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-with_reconnect">#with_reconnect &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis.html#method-i-with_reconnect">#with_reconnect &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Pipeline.html#method-i-with_reconnect-3F">#with_reconnect? &mdash; Redis::Pipeline</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-with_socket_timeout">#with_socket_timeout &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis.html#method-i-without_reconnect">#without_reconnect &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-without_reconnect">#without_reconnect &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Pipeline.html#method-i-without_reconnect">#without_reconnect &mdash; Redis::Pipeline</a>
+  
+    <li class="method"><a href="Redis/Pipeline.html#method-i-without_reconnect-3F">#without_reconnect? &mdash; Redis::Pipeline</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-without_socket_timeout">#without_socket_timeout &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Connection/Ruby.html#method-i-write">#write &mdash; Redis::Connection::Ruby</a>
+  
+    <li class="method"><a href="Redis/Client.html#method-i-write">#write &mdash; Redis::Client</a>
+  
+    <li class="method"><a href="Redis/Connection/Hiredis.html#method-i-write">#write &mdash; Redis::Connection::Hiredis</a>
+  
+    <li class="method"><a href="Redis/Connection/Synchrony.html#method-i-write">#write &mdash; Redis::Connection::Synchrony</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-zadd">#zadd &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-zadd">#zadd &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-zcard">#zcard &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-zcard">#zcard &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-zcount">#zcount &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-zcount">#zcount &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-zincrby">#zincrby &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-zincrby">#zincrby &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-zinterstore">#zinterstore &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-zinterstore">#zinterstore &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-zrange">#zrange &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-zrange">#zrange &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-zrangebyscore">#zrangebyscore &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-zrangebyscore">#zrangebyscore &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-zrank">#zrank &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-zrank">#zrank &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-zrem">#zrem &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-zrem">#zrem &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-zremrangebyrank">#zremrangebyrank &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-zremrangebyrank">#zremrangebyrank &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-zremrangebyscore">#zremrangebyscore &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-zremrangebyscore">#zremrangebyscore &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-zrevrange">#zrevrange &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-zrevrange">#zrevrange &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-zrevrangebyscore">#zrevrangebyscore &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-zrevrangebyscore">#zrevrangebyscore &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis.html#method-i-zrevrank">#zrevrank &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-zrevrank">#zrevrank &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-zscore">#zscore &mdash; Redis</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-zscore">#zscore &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis/Distributed.html#method-i-zunionstore">#zunionstore &mdash; Redis::Distributed</a>
+  
+    <li class="method"><a href="Redis.html#method-i-zunionstore">#zunionstore &mdash; Redis</a>
+  
+</ul>
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

@@ -1,0 +1,11 @@
+{:ancestors{I"	Cuba:EF[I"Object;FI"Cuba::Response;F[I"Object;FI"Cutest::Scope;F[	I"Capybara;FI"Capybara::DSL;FI"Object;FI"Rack::Test::Methods;F:attributes{I"	Cuba;F[	I"attr_reader captures;FI"attr_reader env;FI"attr_reader req;FI"attr_reader res;F@
+[I"attr_accessor status;FI"attr_reader headers;F:class_methods{I"	Cuba;F[I"app;FI"	call;FI"deepclone;FI"define;FI"inherited;FI"new;FI"plugin;FI"prototype;FI"reset!;FI"settings;FI"use;F@
+[I"new;FI"Cuba::Render;F[I"
+setup;F:encodingIu:Encoding
+UTF-8;F:instance_methods{	I"	Cuba;F[I"accept;FI"	call;FI"
+call!;FI"captures;FI"default;FI"delete;FI"env;FI"extension;FI"get;FI"	halt;FI"header;FI"	host;FI"
+match;FI"on;FI"
+param;FI"	post;FI"put;FI"req;FI"res;FI"	root;FI"run;FI"session;FI"settings;F@
+[I"[];FI"[]=;FI"delete_cookie;FI"finish;FI"headers;FI"redirect;FI"set_cookie;FI"status;FI"
+write;F@[I"app;F@-[	I"partial;FI"render;FI"template_path;FI"	view;F:modules[
+I"	Cuba;FI"Cuba::Render;FI"Cuba::Response;FI"Cutest;FI"Cutest::Scope;F

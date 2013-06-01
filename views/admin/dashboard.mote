@@ -1,0 +1,19 @@
+<h2>Admin Dashboard</h2>
+
+<a href="/admin/add_restaurant">Add restaurant</a>
+
+<table>
+  <tr>
+    <th>Restaurant</th>
+    <th>Cuisine</th>
+    <th>URL</th>
+  </tr>
+<p id="orderBy"></p>
+% Restaurant.all.each do |r|
+  <tr>
+    <td>{{ r.name }}</td>
+    <td>{{ r.cuisine }}</td>
+    <td>{{ r.url }}</td>
+  </tr>
+% end
+</table>

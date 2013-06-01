@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/css/layout.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>Cuba & Json</h1>
+    <section id="notices">{{ mote("views/notices.mote", session: session) }}</section>
+    <section id="content">
+      {{ content }}
+    </section>
+    <script src="/js/notices.js"></script>
+  </body>
+</html>

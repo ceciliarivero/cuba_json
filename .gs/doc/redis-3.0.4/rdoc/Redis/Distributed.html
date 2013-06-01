@@ -1,0 +1,4997 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Redis::Distributed - redis-3.0.4 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/redis/distributed.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-5B-5D">#[]</a>
+    
+    <li><a href="#method-i-5B-5D-3D">#[]=</a>
+    
+    <li><a href="#method-i-_bpop">#_bpop</a>
+    
+    <li><a href="#method-i-_eval">#_eval</a>
+    
+    <li><a href="#method-i-add_node">#add_node</a>
+    
+    <li><a href="#method-i-append">#append</a>
+    
+    <li><a href="#method-i-bgsave">#bgsave</a>
+    
+    <li><a href="#method-i-bitcount">#bitcount</a>
+    
+    <li><a href="#method-i-bitop">#bitop</a>
+    
+    <li><a href="#method-i-blpop">#blpop</a>
+    
+    <li><a href="#method-i-brpop">#brpop</a>
+    
+    <li><a href="#method-i-brpoplpush">#brpoplpush</a>
+    
+    <li><a href="#method-i-dbsize">#dbsize</a>
+    
+    <li><a href="#method-i-decr">#decr</a>
+    
+    <li><a href="#method-i-decrby">#decrby</a>
+    
+    <li><a href="#method-i-del">#del</a>
+    
+    <li><a href="#method-i-discard">#discard</a>
+    
+    <li><a href="#method-i-dump">#dump</a>
+    
+    <li><a href="#method-i-echo">#echo</a>
+    
+    <li><a href="#method-i-ensure_same_node">#ensure_same_node</a>
+    
+    <li><a href="#method-i-eval">#eval</a>
+    
+    <li><a href="#method-i-evalsha">#evalsha</a>
+    
+    <li><a href="#method-i-exec">#exec</a>
+    
+    <li><a href="#method-i-exists">#exists</a>
+    
+    <li><a href="#method-i-expire">#expire</a>
+    
+    <li><a href="#method-i-expireat">#expireat</a>
+    
+    <li><a href="#method-i-flushall">#flushall</a>
+    
+    <li><a href="#method-i-flushdb">#flushdb</a>
+    
+    <li><a href="#method-i-get">#get</a>
+    
+    <li><a href="#method-i-getbit">#getbit</a>
+    
+    <li><a href="#method-i-getrange">#getrange</a>
+    
+    <li><a href="#method-i-getset">#getset</a>
+    
+    <li><a href="#method-i-hdel">#hdel</a>
+    
+    <li><a href="#method-i-hexists">#hexists</a>
+    
+    <li><a href="#method-i-hget">#hget</a>
+    
+    <li><a href="#method-i-hgetall">#hgetall</a>
+    
+    <li><a href="#method-i-hincrby">#hincrby</a>
+    
+    <li><a href="#method-i-hincrbyfloat">#hincrbyfloat</a>
+    
+    <li><a href="#method-i-hkeys">#hkeys</a>
+    
+    <li><a href="#method-i-hlen">#hlen</a>
+    
+    <li><a href="#method-i-hmget">#hmget</a>
+    
+    <li><a href="#method-i-hmset">#hmset</a>
+    
+    <li><a href="#method-i-hset">#hset</a>
+    
+    <li><a href="#method-i-hsetnx">#hsetnx</a>
+    
+    <li><a href="#method-i-hvals">#hvals</a>
+    
+    <li><a href="#method-i-incr">#incr</a>
+    
+    <li><a href="#method-i-incrby">#incrby</a>
+    
+    <li><a href="#method-i-incrbyfloat">#incrbyfloat</a>
+    
+    <li><a href="#method-i-info">#info</a>
+    
+    <li><a href="#method-i-inspect">#inspect</a>
+    
+    <li><a href="#method-i-key_tag">#key_tag</a>
+    
+    <li><a href="#method-i-keys">#keys</a>
+    
+    <li><a href="#method-i-lastsave">#lastsave</a>
+    
+    <li><a href="#method-i-lindex">#lindex</a>
+    
+    <li><a href="#method-i-linsert">#linsert</a>
+    
+    <li><a href="#method-i-llen">#llen</a>
+    
+    <li><a href="#method-i-lpop">#lpop</a>
+    
+    <li><a href="#method-i-lpush">#lpush</a>
+    
+    <li><a href="#method-i-lpushx">#lpushx</a>
+    
+    <li><a href="#method-i-lrange">#lrange</a>
+    
+    <li><a href="#method-i-lrem">#lrem</a>
+    
+    <li><a href="#method-i-lset">#lset</a>
+    
+    <li><a href="#method-i-ltrim">#ltrim</a>
+    
+    <li><a href="#method-i-mapped_hmget">#mapped_hmget</a>
+    
+    <li><a href="#method-i-mapped_hmset">#mapped_hmset</a>
+    
+    <li><a href="#method-i-mapped_mget">#mapped_mget</a>
+    
+    <li><a href="#method-i-mapped_mset">#mapped_mset</a>
+    
+    <li><a href="#method-i-mapped_msetnx">#mapped_msetnx</a>
+    
+    <li><a href="#method-i-mget">#mget</a>
+    
+    <li><a href="#method-i-monitor">#monitor</a>
+    
+    <li><a href="#method-i-move">#move</a>
+    
+    <li><a href="#method-i-mset">#mset</a>
+    
+    <li><a href="#method-i-msetnx">#msetnx</a>
+    
+    <li><a href="#method-i-multi">#multi</a>
+    
+    <li><a href="#method-i-node_for">#node_for</a>
+    
+    <li><a href="#method-i-node_index_for">#node_index_for</a>
+    
+    <li><a href="#method-i-nodes">#nodes</a>
+    
+    <li><a href="#method-i-on_each_node">#on_each_node</a>
+    
+    <li><a href="#method-i-persist">#persist</a>
+    
+    <li><a href="#method-i-pexpire">#pexpire</a>
+    
+    <li><a href="#method-i-pexpireat">#pexpireat</a>
+    
+    <li><a href="#method-i-ping">#ping</a>
+    
+    <li><a href="#method-i-pipelined">#pipelined</a>
+    
+    <li><a href="#method-i-psetex">#psetex</a>
+    
+    <li><a href="#method-i-psubscribe">#psubscribe</a>
+    
+    <li><a href="#method-i-pttl">#pttl</a>
+    
+    <li><a href="#method-i-publish">#publish</a>
+    
+    <li><a href="#method-i-punsubscribe">#punsubscribe</a>
+    
+    <li><a href="#method-i-quit">#quit</a>
+    
+    <li><a href="#method-i-randomkey">#randomkey</a>
+    
+    <li><a href="#method-i-rename">#rename</a>
+    
+    <li><a href="#method-i-renamenx">#renamenx</a>
+    
+    <li><a href="#method-i-restore">#restore</a>
+    
+    <li><a href="#method-i-rpop">#rpop</a>
+    
+    <li><a href="#method-i-rpoplpush">#rpoplpush</a>
+    
+    <li><a href="#method-i-rpush">#rpush</a>
+    
+    <li><a href="#method-i-rpushx">#rpushx</a>
+    
+    <li><a href="#method-i-sadd">#sadd</a>
+    
+    <li><a href="#method-i-save">#save</a>
+    
+    <li><a href="#method-i-scard">#scard</a>
+    
+    <li><a href="#method-i-script">#script</a>
+    
+    <li><a href="#method-i-sdiff">#sdiff</a>
+    
+    <li><a href="#method-i-sdiffstore">#sdiffstore</a>
+    
+    <li><a href="#method-i-select">#select</a>
+    
+    <li><a href="#method-i-set">#set</a>
+    
+    <li><a href="#method-i-setbit">#setbit</a>
+    
+    <li><a href="#method-i-setex">#setex</a>
+    
+    <li><a href="#method-i-setnx">#setnx</a>
+    
+    <li><a href="#method-i-setrange">#setrange</a>
+    
+    <li><a href="#method-i-sinter">#sinter</a>
+    
+    <li><a href="#method-i-sinterstore">#sinterstore</a>
+    
+    <li><a href="#method-i-sismember">#sismember</a>
+    
+    <li><a href="#method-i-smembers">#smembers</a>
+    
+    <li><a href="#method-i-smove">#smove</a>
+    
+    <li><a href="#method-i-sort">#sort</a>
+    
+    <li><a href="#method-i-spop">#spop</a>
+    
+    <li><a href="#method-i-srandmember">#srandmember</a>
+    
+    <li><a href="#method-i-srem">#srem</a>
+    
+    <li><a href="#method-i-strlen">#strlen</a>
+    
+    <li><a href="#method-i-subscribe">#subscribe</a>
+    
+    <li><a href="#method-i-subscribed-3F">#subscribed?</a>
+    
+    <li><a href="#method-i-sunion">#sunion</a>
+    
+    <li><a href="#method-i-sunionstore">#sunionstore</a>
+    
+    <li><a href="#method-i-time">#time</a>
+    
+    <li><a href="#method-i-ttl">#ttl</a>
+    
+    <li><a href="#method-i-type">#type</a>
+    
+    <li><a href="#method-i-unsubscribe">#unsubscribe</a>
+    
+    <li><a href="#method-i-unwatch">#unwatch</a>
+    
+    <li><a href="#method-i-watch">#watch</a>
+    
+    <li><a href="#method-i-zadd">#zadd</a>
+    
+    <li><a href="#method-i-zcard">#zcard</a>
+    
+    <li><a href="#method-i-zcount">#zcount</a>
+    
+    <li><a href="#method-i-zincrby">#zincrby</a>
+    
+    <li><a href="#method-i-zinterstore">#zinterstore</a>
+    
+    <li><a href="#method-i-zrange">#zrange</a>
+    
+    <li><a href="#method-i-zrangebyscore">#zrangebyscore</a>
+    
+    <li><a href="#method-i-zrank">#zrank</a>
+    
+    <li><a href="#method-i-zrem">#zrem</a>
+    
+    <li><a href="#method-i-zremrangebyrank">#zremrangebyrank</a>
+    
+    <li><a href="#method-i-zremrangebyscore">#zremrangebyscore</a>
+    
+    <li><a href="#method-i-zrevrange">#zrevrange</a>
+    
+    <li><a href="#method-i-zrevrangebyscore">#zrevrangebyscore</a>
+    
+    <li><a href="#method-i-zrevrank">#zrevrank</a>
+    
+    <li><a href="#method-i-zscore">#zscore</a>
+    
+    <li><a href="#method-i-zunionstore">#zunionstore</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Redis.html">Redis</a>
+  
+    <li><a href="../Redis/BaseConnectionError.html">Redis::BaseConnectionError</a>
+  
+    <li><a href="../Redis/BaseError.html">Redis::BaseError</a>
+  
+    <li><a href="../Redis/BasicObject.html">Redis::BasicObject</a>
+  
+    <li><a href="../Redis/CannotConnectError.html">Redis::CannotConnectError</a>
+  
+    <li><a href="../Redis/Client.html">Redis::Client</a>
+  
+    <li><a href="../Redis/CommandError.html">Redis::CommandError</a>
+  
+    <li><a href="../Redis/Connection.html">Redis::Connection</a>
+  
+    <li><a href="../Redis/Connection/CommandHelper.html">Redis::Connection::CommandHelper</a>
+  
+    <li><a href="../Redis/Connection/Hiredis.html">Redis::Connection::Hiredis</a>
+  
+    <li><a href="../Redis/Connection/RedisClient.html">Redis::Connection::RedisClient</a>
+  
+    <li><a href="../Redis/Connection/Ruby.html">Redis::Connection::Ruby</a>
+  
+    <li><a href="../Redis/Connection/SocketMixin.html">Redis::Connection::SocketMixin</a>
+  
+    <li><a href="../Redis/Connection/Synchrony.html">Redis::Connection::Synchrony</a>
+  
+    <li><a href="../Redis/Connection/TCPSocket.html">Redis::Connection::TCPSocket</a>
+  
+    <li><a href="../Redis/Connection/UNIXSocket.html">Redis::Connection::UNIXSocket</a>
+  
+    <li><a href="../Redis/ConnectionError.html">Redis::ConnectionError</a>
+  
+    <li><a href="../Redis/Distributed.html">Redis::Distributed</a>
+  
+    <li><a href="../Redis/Distributed/CannotDistribute.html">Redis::Distributed::CannotDistribute</a>
+  
+    <li><a href="../Redis/Future.html">Redis::Future</a>
+  
+    <li><a href="../Redis/FutureNotReady.html">Redis::FutureNotReady</a>
+  
+    <li><a href="../Redis/HashRing.html">Redis::HashRing</a>
+  
+    <li><a href="../Redis/InheritedError.html">Redis::InheritedError</a>
+  
+    <li><a href="../Redis/Pipeline.html">Redis::Pipeline</a>
+  
+    <li><a href="../Redis/Pipeline/Multi.html">Redis::Pipeline::Multi</a>
+  
+    <li><a href="../Redis/ProtocolError.html">Redis::ProtocolError</a>
+  
+    <li><a href="../Redis/SubscribedClient.html">Redis::SubscribedClient</a>
+  
+    <li><a href="../Redis/Subscription.html">Redis::Subscription</a>
+  
+    <li><a href="../Redis/TimeoutError.html">Redis::TimeoutError</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Redis::Distributed</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-ring" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">ring</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(node_configs, options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">node_configs</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-ivar">@tag</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:tag</span>) <span class="ruby-operator">||</span> <span class="ruby-regexp">%r^\{(.+?)\}/</span>
+  <span class="ruby-ivar">@default_options</span> = <span class="ruby-identifier">options</span>
+  <span class="ruby-ivar">@ring</span> = <span class="ruby-constant">HashRing</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">node_configs</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">node_config</span><span class="ruby-operator">|</span> <span class="ruby-identifier">add_node</span>(<span class="ruby-identifier">node_config</span>) }
+  <span class="ruby-ivar">@subscribed_node</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-5B-5D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 330</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">get</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- 5B-5D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- 5B-5D-method -->
+
+    
+      <div id="method-i-5B-5D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]=</span><span
+            class="method-args">(key,value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-3D-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 334</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]=</span>(<span class="ruby-identifier">key</span>,<span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">set</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- 5B-5D-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- 5B-5D-3D-method -->
+
+    
+      <div id="method-i-_bpop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_bpop</span><span
+            class="method-args">(cmd, args)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_bpop-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 381</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_bpop</span>(<span class="ruby-identifier">cmd</span>, <span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">options</span> = {}
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">last</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Hash</span>
+    <span class="ruby-identifier">options</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Integer</span>
+    <span class="ruby-comment"># Issue deprecation notice in obnoxious mode...</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:timeout</span>] = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+    <span class="ruby-comment"># Issue deprecation notice in obnoxious mode...</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">keys</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">flatten</span>
+
+  <span class="ruby-identifier">ensure_same_node</span>(<span class="ruby-identifier">cmd</span>, <span class="ruby-identifier">keys</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">cmd</span>, <span class="ruby-identifier">keys</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- _bpop-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- _bpop-method -->
+
+    
+      <div id="method-i-_eval" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_eval</span><span
+            class="method-args">(cmd, args)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_eval-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 778</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_eval</span>(<span class="ruby-identifier">cmd</span>, <span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">script</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-identifier">options</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">pop</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+  <span class="ruby-identifier">options</span> <span class="ruby-operator">||=</span> {}
+
+  <span class="ruby-identifier">keys</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:keys</span>] <span class="ruby-operator">||</span> []
+  <span class="ruby-identifier">argv</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:argv</span>] <span class="ruby-operator">||</span> []
+
+  <span class="ruby-identifier">ensure_same_node</span>(<span class="ruby-identifier">cmd</span>, <span class="ruby-identifier">keys</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">cmd</span>, <span class="ruby-identifier">script</span>, <span class="ruby-identifier">keys</span>, <span class="ruby-identifier">argv</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- _eval-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- _eval-method -->
+
+    
+      <div id="method-i-add_node" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_node</span><span
+            class="method-args">(options)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_node-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_node</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">options</span> = { <span class="ruby-value">:url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span> } <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+  <span class="ruby-identifier">options</span> = <span class="ruby-ivar">@default_options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-ivar">@ring</span>.<span class="ruby-identifier">add_node</span> <span class="ruby-constant">Redis</span>.<span class="ruby-identifier">new</span>( <span class="ruby-identifier">options</span> )
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- add_node-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- add_node-method -->
+
+    
+      <div id="method-i-append" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">append</span><span
+            class="method-args">(key, value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Append a value to a key.</p>
+          
+
+          
+          <div class="method-source-code" id="append-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 304</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">append</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">append</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- append-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- append-method -->
+
+    
+      <div id="method-i-bgsave" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bgsave</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Asynchronously save the dataset to disk.</p>
+          
+
+          
+          <div class="method-source-code" id="bgsave-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bgsave</span>
+  <span class="ruby-identifier">on_each_node</span> <span class="ruby-value">:bgsave</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- bgsave-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- bgsave-method -->
+
+    
+      <div id="method-i-bitcount" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bitcount</span><span
+            class="method-args">(key, start = 0, stop = -1)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Count the number of set bits in a range of the string value stored at key.</p>
+          
+
+          
+          <div class="method-source-code" id="bitcount-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 309</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bitcount</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">start</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">stop</span> = <span class="ruby-value">-1</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">bitcount</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">stop</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- bitcount-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- bitcount-method -->
+
+    
+      <div id="method-i-bitop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bitop</span><span
+            class="method-args">(operation, destkey, *keys)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Perform a bitwise operation between strings and store the resulting string
+in a key.</p>
+          
+
+          
+          <div class="method-source-code" id="bitop-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 314</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bitop</span>(<span class="ruby-identifier">operation</span>, <span class="ruby-identifier">destkey</span>, *<span class="ruby-identifier">keys</span>)
+  <span class="ruby-identifier">ensure_same_node</span>(<span class="ruby-value">:bitop</span>, [<span class="ruby-identifier">destkey</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">keys</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">bitop</span>(<span class="ruby-identifier">operation</span>, <span class="ruby-identifier">destkey</span>, *<span class="ruby-identifier">keys</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- bitop-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- bitop-method -->
+
+    
+      <div id="method-i-blpop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blpop</span><span
+            class="method-args">(*args)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove and get the first element in a list, or block until one is
+available.</p>
+          
+
+          
+          <div class="method-source-code" id="blpop-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 405</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blpop</span>(*<span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">_bpop</span>(<span class="ruby-value">:blpop</span>, <span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- blpop-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- blpop-method -->
+
+    
+      <div id="method-i-brpop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">brpop</span><span
+            class="method-args">(*args)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove and get the last element in a list, or block until one is available.</p>
+          
+
+          
+          <div class="method-source-code" id="brpop-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 411</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">brpop</span>(*<span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">_bpop</span>(<span class="ruby-value">:brpop</span>, <span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- brpop-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- brpop-method -->
+
+    
+      <div id="method-i-brpoplpush" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">brpoplpush</span><span
+            class="method-args">(source, destination, options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Pop a value from a list, push it to another list and return it; or block
+until one is available.</p>
+          
+
+          
+          <div class="method-source-code" id="brpoplpush-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 417</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">brpoplpush</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">destination</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">options</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Integer</span>
+    <span class="ruby-comment"># Issue deprecation notice in obnoxious mode...</span>
+    <span class="ruby-identifier">options</span> = { <span class="ruby-value">:timeout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span> }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">ensure_same_node</span>(<span class="ruby-value">:brpoplpush</span>, [<span class="ruby-identifier">source</span>, <span class="ruby-identifier">destination</span>]) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">brpoplpush</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">destination</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- brpoplpush-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- brpoplpush-method -->
+
+    
+      <div id="method-i-dbsize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dbsize</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return the number of keys in the selected database.</p>
+          
+
+          
+          <div class="method-source-code" id="dbsize-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dbsize</span>
+  <span class="ruby-identifier">on_each_node</span> <span class="ruby-value">:dbsize</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- dbsize-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- dbsize-method -->
+
+    
+      <div id="method-i-decr" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">decr</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Decrement the integer value of a key by one.</p>
+          
+
+          
+          <div class="method-source-code" id="decr-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 207</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">decr</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">decr</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- decr-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- decr-method -->
+
+    
+      <div id="method-i-decrby" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">decrby</span><span
+            class="method-args">(key, decrement)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Decrement the integer value of a key by the given number.</p>
+          
+
+          
+          <div class="method-source-code" id="decrby-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 212</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">decrby</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">decrement</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">decrby</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">decrement</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- decrby-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- decrby-method -->
+
+    
+      <div id="method-i-del" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">del</span><span
+            class="method-args">(*args)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Delete a key.</p>
+          
+
+          
+          <div class="method-source-code" id="del-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 151</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">del</span>(*<span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">keys_per_node</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">group_by</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span> <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>) }
+  <span class="ruby-identifier">keys_per_node</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-value">0</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sum</span>, (<span class="ruby-identifier">node</span>, <span class="ruby-identifier">keys</span>)<span class="ruby-operator">|</span>
+    <span class="ruby-identifier">sum</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">del</span>(*<span class="ruby-identifier">keys</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- del-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- del-method -->
+
+    
+      <div id="method-i-discard" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">discard</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Discard all commands issued after MULTI.</p>
+          
+
+          
+          <div class="method-source-code" id="discard-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 769</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">discard</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">CannotDistribute</span>, <span class="ruby-value">:discard</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- discard-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- discard-method -->
+
+    
+      <div id="method-i-dump" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dump</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return a serialized version of the value stored at a key.</p>
+          
+
+          
+          <div class="method-source-code" id="dump-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dump</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- dump-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- dump-method -->
+
+    
+      <div id="method-i-echo" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">echo</span><span
+            class="method-args">(value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Echo the given string.</p>
+          
+
+          
+          <div class="method-source-code" id="echo-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">echo</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">on_each_node</span> <span class="ruby-value">:echo</span>, <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- echo-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- echo-method -->
+
+    
+      <div id="method-i-eval" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">eval</span><span
+            class="method-args">(*args)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Evaluate Lua script.</p>
+          
+
+          
+          <div class="method-source-code" id="eval-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 792</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">eval</span>(*<span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">_eval</span>(<span class="ruby-value">:eval</span>, <span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- eval-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- eval-method -->
+
+    
+      <div id="method-i-evalsha" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">evalsha</span><span
+            class="method-args">(*args)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Evaluate Lua script by its SHA.</p>
+          
+
+          
+          <div class="method-source-code" id="evalsha-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 797</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">evalsha</span>(*<span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">_eval</span>(<span class="ruby-value">:evalsha</span>, <span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- evalsha-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- evalsha-method -->
+
+    
+      <div id="method-i-exec" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exec</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Execute all commands issued after MULTI.</p>
+          
+
+          
+          <div class="method-source-code" id="exec-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 764</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">exec</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">CannotDistribute</span>, <span class="ruby-value">:exec</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- exec-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- exec-method -->
+
+    
+      <div id="method-i-exists" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exists</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Determine if a key exists.</p>
+          
+
+          
+          <div class="method-source-code" id="exists-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">exists</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">exists</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- exists-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- exists-method -->
+
+    
+      <div id="method-i-expire" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">expire</span><span
+            class="method-args">(key, seconds)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set a key’s time to live in seconds.</p>
+          
+
+          
+          <div class="method-source-code" id="expire-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">expire</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">seconds</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">expire</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">seconds</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- expire-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- expire-method -->
+
+    
+      <div id="method-i-expireat" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">expireat</span><span
+            class="method-args">(key, unix_time)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the expiration for a key as a UNIX timestamp.</p>
+          
+
+          
+          <div class="method-source-code" id="expireat-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">expireat</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">unix_time</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">expireat</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">unix_time</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- expireat-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- expireat-method -->
+
+    
+      <div id="method-i-flushall" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">flushall</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove all keys from all databases.</p>
+          
+
+          
+          <div class="method-source-code" id="flushall-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">flushall</span>
+  <span class="ruby-identifier">on_each_node</span> <span class="ruby-value">:flushall</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- flushall-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- flushall-method -->
+
+    
+      <div id="method-i-flushdb" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">flushdb</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove all keys from the current database.</p>
+          
+
+          
+          <div class="method-source-code" id="flushdb-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">flushdb</span>
+  <span class="ruby-identifier">on_each_node</span> <span class="ruby-value">:flushdb</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- flushdb-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- flushdb-method -->
+
+    
+      <div id="method-i-get" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the value of a key.</p>
+          
+
+          
+          <div class="method-source-code" id="get-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 270</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">get</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get-method -->
+
+    
+      <div id="method-i-getbit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getbit</span><span
+            class="method-args">(key, offset)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the bit value at offset in the string value stored at key.</p>
+          
+
+          
+          <div class="method-source-code" id="getbit-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 299</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">getbit</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">offset</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">getbit</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- getbit-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- getbit-method -->
+
+    
+      <div id="method-i-getrange" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getrange</span><span
+            class="method-args">(key, start, stop)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get a substring of the string stored at a key.</p>
+          
+
+          
+          <div class="method-source-code" id="getrange-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 289</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">getrange</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">stop</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">getrange</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">stop</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- getrange-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- getrange-method -->
+
+    
+      <div id="method-i-getset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getset</span><span
+            class="method-args">(key, value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the string value of a key and return its old value.</p>
+          
+
+          
+          <div class="method-source-code" id="getset-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 321</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">getset</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">getset</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- getset-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- getset-method -->
+
+    
+      <div id="method-i-hdel" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hdel</span><span
+            class="method-args">(key, field)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Delete one or more hash fields.</p>
+          
+
+          
+          <div class="method-source-code" id="hdel-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 671</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hdel</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">field</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">hdel</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">field</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- hdel-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- hdel-method -->
+
+    
+      <div id="method-i-hexists" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hexists</span><span
+            class="method-args">(key, field)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Determine if a hash field exists.</p>
+          
+
+          
+          <div class="method-source-code" id="hexists-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 676</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hexists</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">field</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">hexists</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">field</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- hexists-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- hexists-method -->
+
+    
+      <div id="method-i-hget" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hget</span><span
+            class="method-args">(key, field)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the value of a hash field.</p>
+          
+
+          
+          <div class="method-source-code" id="hget-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 657</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hget</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">field</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">hget</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">field</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- hget-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- hget-method -->
+
+    
+      <div id="method-i-hgetall" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hgetall</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get all the fields and values in a hash.</p>
+          
+
+          
+          <div class="method-source-code" id="hgetall-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 701</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hgetall</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">hgetall</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- hgetall-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- hgetall-method -->
+
+    
+      <div id="method-i-hincrby" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hincrby</span><span
+            class="method-args">(key, field, increment)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Increment the integer value of a hash field by the given integer number.</p>
+          
+
+          
+          <div class="method-source-code" id="hincrby-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 681</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hincrby</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">field</span>, <span class="ruby-identifier">increment</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">hincrby</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">field</span>, <span class="ruby-identifier">increment</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- hincrby-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- hincrby-method -->
+
+    
+      <div id="method-i-hincrbyfloat" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hincrbyfloat</span><span
+            class="method-args">(key, field, increment)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Increment the numeric value of a hash field by the given float number.</p>
+          
+
+          
+          <div class="method-source-code" id="hincrbyfloat-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 686</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hincrbyfloat</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">field</span>, <span class="ruby-identifier">increment</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">hincrbyfloat</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">field</span>, <span class="ruby-identifier">increment</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- hincrbyfloat-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- hincrbyfloat-method -->
+
+    
+      <div id="method-i-hkeys" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hkeys</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get all the fields in a hash.</p>
+          
+
+          
+          <div class="method-source-code" id="hkeys-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 691</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hkeys</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">hkeys</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- hkeys-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- hkeys-method -->
+
+    
+      <div id="method-i-hlen" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hlen</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the number of fields in a hash.</p>
+          
+
+          
+          <div class="method-source-code" id="hlen-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 633</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hlen</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">hlen</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- hlen-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- hlen-method -->
+
+    
+      <div id="method-i-hmget" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hmget</span><span
+            class="method-args">(key, *fields)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the values of all the given hash fields.</p>
+          
+
+          
+          <div class="method-source-code" id="hmget-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 662</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hmget</span>(<span class="ruby-identifier">key</span>, *<span class="ruby-identifier">fields</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">hmget</span>(<span class="ruby-identifier">key</span>, *<span class="ruby-identifier">fields</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- hmget-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- hmget-method -->
+
+    
+      <div id="method-i-hmset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hmset</span><span
+            class="method-args">(key, *attrs)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set multiple hash fields to multiple values.</p>
+          
+
+          
+          <div class="method-source-code" id="hmset-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 648</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hmset</span>(<span class="ruby-identifier">key</span>, *<span class="ruby-identifier">attrs</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">hmset</span>(<span class="ruby-identifier">key</span>, *<span class="ruby-identifier">attrs</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- hmset-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- hmset-method -->
+
+    
+      <div id="method-i-hset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hset</span><span
+            class="method-args">(key, field, value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the string value of a hash field.</p>
+          
+
+          
+          <div class="method-source-code" id="hset-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 638</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hset</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">field</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">hset</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">field</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- hset-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- hset-method -->
+
+    
+      <div id="method-i-hsetnx" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hsetnx</span><span
+            class="method-args">(key, field, value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the value of a hash field, only if the field does not exist.</p>
+          
+
+          
+          <div class="method-source-code" id="hsetnx-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 643</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hsetnx</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">field</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">hsetnx</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">field</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- hsetnx-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- hsetnx-method -->
+
+    
+      <div id="method-i-hvals" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hvals</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get all the values in a hash.</p>
+          
+
+          
+          <div class="method-source-code" id="hvals-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 696</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hvals</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">hvals</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- hvals-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- hvals-method -->
+
+    
+      <div id="method-i-incr" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">incr</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Increment the integer value of a key by one.</p>
+          
+
+          
+          <div class="method-source-code" id="incr-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 217</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">incr</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">incr</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- incr-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- incr-method -->
+
+    
+      <div id="method-i-incrby" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">incrby</span><span
+            class="method-args">(key, increment)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Increment the integer value of a key by the given integer number.</p>
+          
+
+          
+          <div class="method-source-code" id="incrby-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 222</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">incrby</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">increment</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">incrby</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">increment</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- incrby-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- incrby-method -->
+
+    
+      <div id="method-i-incrbyfloat" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">incrbyfloat</span><span
+            class="method-args">(key, increment)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Increment the numeric value of a key by the given float number.</p>
+          
+
+          
+          <div class="method-source-code" id="incrbyfloat-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 227</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">incrbyfloat</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">increment</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">incrbyfloat</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">increment</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- incrbyfloat-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- incrbyfloat-method -->
+
+    
+      <div id="method-i-info" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">info</span><span
+            class="method-args">(cmd = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get information and statistics about the server.</p>
+          
+
+          
+          <div class="method-source-code" id="info-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">info</span>(<span class="ruby-identifier">cmd</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">on_each_node</span> <span class="ruby-value">:info</span>, <span class="ruby-identifier">cmd</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- info-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- info-method -->
+
+    
+      <div id="method-i-inspect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inspect</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="inspect-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 801</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inspect</span>
+  <span class="ruby-node">&quot;#&lt;Redis client v#{Redis::VERSION} for #{nodes.map(&amp;:id).join(', ')}&gt;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- inspect-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- inspect-method -->
+
+    
+      <div id="method-i-keys" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">keys</span><span
+            class="method-args">(glob = "*")</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Find all keys matching the given pattern.</p>
+          
+
+          
+          <div class="method-source-code" id="keys-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 164</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">keys</span>(<span class="ruby-identifier">glob</span> = <span class="ruby-string">&quot;*&quot;</span>)
+  <span class="ruby-identifier">on_each_node</span>(<span class="ruby-value">:keys</span>, <span class="ruby-identifier">glob</span>).<span class="ruby-identifier">flatten</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- keys-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- keys-method -->
+
+    
+      <div id="method-i-lastsave" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lastsave</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the UNIX time stamp of the last successful save to disk.</p>
+          
+
+          
+          <div class="method-source-code" id="lastsave-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">lastsave</span>
+  <span class="ruby-identifier">on_each_node</span> <span class="ruby-value">:lastsave</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- lastsave-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- lastsave-method -->
+
+    
+      <div id="method-i-lindex" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lindex</span><span
+            class="method-args">(key, index)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get an element from a list by its index.</p>
+          
+
+          
+          <div class="method-source-code" id="lindex-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 430</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">lindex</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">index</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">lindex</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">index</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- lindex-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- lindex-method -->
+
+    
+      <div id="method-i-linsert" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">linsert</span><span
+            class="method-args">(key, where, pivot, value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Insert an element before or after another element in a list.</p>
+          
+
+          
+          <div class="method-source-code" id="linsert-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 435</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">linsert</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">where</span>, <span class="ruby-identifier">pivot</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">linsert</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">where</span>, <span class="ruby-identifier">pivot</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- linsert-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- linsert-method -->
+
+    
+      <div id="method-i-llen" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">llen</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the length of a list.</p>
+          
+
+          
+          <div class="method-source-code" id="llen-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 339</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">llen</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">llen</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- llen-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- llen-method -->
+
+    
+      <div id="method-i-lpop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lpop</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove and get the first element in a list.</p>
+          
+
+          
+          <div class="method-source-code" id="lpop-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 364</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">lpop</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">lpop</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- lpop-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- lpop-method -->
+
+    
+      <div id="method-i-lpush" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lpush</span><span
+            class="method-args">(key, value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Prepend one or more values to a list.</p>
+          
+
+          
+          <div class="method-source-code" id="lpush-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 344</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">lpush</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">lpush</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- lpush-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- lpush-method -->
+
+    
+      <div id="method-i-lpushx" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lpushx</span><span
+            class="method-args">(key, value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Prepend a value to a list, only if the list exists.</p>
+          
+
+          
+          <div class="method-source-code" id="lpushx-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 349</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">lpushx</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">lpushx</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- lpushx-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- lpushx-method -->
+
+    
+      <div id="method-i-lrange" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lrange</span><span
+            class="method-args">(key, start, stop)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get a range of elements from a list.</p>
+          
+
+          
+          <div class="method-source-code" id="lrange-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 440</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">lrange</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">stop</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">lrange</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">stop</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- lrange-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- lrange-method -->
+
+    
+      <div id="method-i-lrem" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lrem</span><span
+            class="method-args">(key, count, value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove elements from a list.</p>
+          
+
+          
+          <div class="method-source-code" id="lrem-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 445</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">lrem</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">count</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">lrem</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">count</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- lrem-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- lrem-method -->
+
+    
+      <div id="method-i-lset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lset</span><span
+            class="method-args">(key, index, value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the value of an element in a list by its index.</p>
+          
+
+          
+          <div class="method-source-code" id="lset-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 450</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">lset</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">index</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">lset</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">index</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- lset-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- lset-method -->
+
+    
+      <div id="method-i-ltrim" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ltrim</span><span
+            class="method-args">(key, start, stop)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Trim a list to the specified range.</p>
+          
+
+          
+          <div class="method-source-code" id="ltrim-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 455</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ltrim</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">stop</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">ltrim</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">stop</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- ltrim-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- ltrim-method -->
+
+    
+      <div id="method-i-mapped_hmget" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mapped_hmget</span><span
+            class="method-args">(key, *fields)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="mapped_hmget-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 666</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mapped_hmget</span>(<span class="ruby-identifier">key</span>, *<span class="ruby-identifier">fields</span>)
+  <span class="ruby-constant">Hash</span>[*<span class="ruby-identifier">fields</span>.<span class="ruby-identifier">zip</span>(<span class="ruby-identifier">hmget</span>(<span class="ruby-identifier">key</span>, *<span class="ruby-identifier">fields</span>)).<span class="ruby-identifier">flatten</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- mapped_hmget-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- mapped_hmget-method -->
+
+    
+      <div id="method-i-mapped_hmset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mapped_hmset</span><span
+            class="method-args">(key, hash)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="mapped_hmset-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 652</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mapped_hmset</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">hmset</span>(<span class="ruby-identifier">key</span>, *<span class="ruby-identifier">hash</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">flatten</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- mapped_hmset-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- mapped_hmset-method -->
+
+    
+      <div id="method-i-mapped_mget" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mapped_mget</span><span
+            class="method-args">(*keys)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="mapped_mget-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 279</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mapped_mget</span>(*<span class="ruby-identifier">keys</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">CannotDistribute</span>, <span class="ruby-value">:mapped_mget</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- mapped_mget-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- mapped_mget-method -->
+
+    
+      <div id="method-i-mapped_mset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mapped_mset</span><span
+            class="method-args">(hash)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="mapped_mset-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 256</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mapped_mset</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">CannotDistribute</span>, <span class="ruby-value">:mapped_mset</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- mapped_mset-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- mapped_mset-method -->
+
+    
+      <div id="method-i-mapped_msetnx" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mapped_msetnx</span><span
+            class="method-args">(hash)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="mapped_msetnx-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 265</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mapped_msetnx</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">CannotDistribute</span>, <span class="ruby-value">:mapped_msetnx</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- mapped_msetnx-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- mapped_msetnx-method -->
+
+    
+      <div id="method-i-mget" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mget</span><span
+            class="method-args">(*keys)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the values of all the given keys.</p>
+          
+
+          
+          <div class="method-source-code" id="mget-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 275</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mget</span>(*<span class="ruby-identifier">keys</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">CannotDistribute</span>, <span class="ruby-value">:mget</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- mget-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- mget-method -->
+
+    
+      <div id="method-i-monitor" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">monitor</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Listen for all requests received by the server in real time.</p>
+          
+
+          
+          <div class="method-source-code" id="monitor-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">monitor</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- monitor-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- monitor-method -->
+
+    
+      <div id="method-i-move" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">move</span><span
+            class="method-args">(key, db)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Move a key to another database.</p>
+          
+
+          
+          <div class="method-source-code" id="move-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 169</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">move</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">db</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">move</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">db</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- move-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- move-method -->
+
+    
+      <div id="method-i-mset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mset</span><span
+            class="method-args">(*args)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set multiple keys to multiple values.</p>
+          
+
+          
+          <div class="method-source-code" id="mset-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 252</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mset</span>(*<span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">CannotDistribute</span>, <span class="ruby-value">:mset</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- mset-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- mset-method -->
+
+    
+      <div id="method-i-msetnx" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">msetnx</span><span
+            class="method-args">(*args)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set multiple keys to multiple values, only if none of the keys exist.</p>
+          
+
+          
+          <div class="method-source-code" id="msetnx-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 261</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">msetnx</span>(*<span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">CannotDistribute</span>, <span class="ruby-value">:msetnx</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- msetnx-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- msetnx-method -->
+
+    
+      <div id="method-i-multi" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">multi</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Mark the start of a transaction block.</p>
+          
+
+          
+          <div class="method-source-code" id="multi-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 759</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">multi</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">CannotDistribute</span>, <span class="ruby-value">:multi</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- multi-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- multi-method -->
+
+    
+      <div id="method-i-node_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">node_for</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="node_for-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-ivar">@ring</span>.<span class="ruby-identifier">get_node</span>(<span class="ruby-identifier">key_tag</span>(<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- node_for-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- node_for-method -->
+
+    
+      <div id="method-i-nodes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nodes</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="nodes-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">nodes</span>
+  <span class="ruby-ivar">@ring</span>.<span class="ruby-identifier">nodes</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- nodes-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- nodes-method -->
+
+    
+      <div id="method-i-persist" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">persist</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove the expiration from a key.</p>
+          
+
+          
+          <div class="method-source-code" id="persist-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">persist</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">persist</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- persist-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- persist-method -->
+
+    
+      <div id="method-i-pexpire" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pexpire</span><span
+            class="method-args">(key, milliseconds)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set a key’s time to live in milliseconds.</p>
+          
+
+          
+          <div class="method-source-code" id="pexpire-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pexpire</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">milliseconds</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">pexpire</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">milliseconds</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- pexpire-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- pexpire-method -->
+
+    
+      <div id="method-i-pexpireat" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pexpireat</span><span
+            class="method-args">(key, ms_unix_time)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the expiration for a key as number of milliseconds from UNIX Epoch.</p>
+          
+
+          
+          <div class="method-source-code" id="pexpireat-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pexpireat</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">ms_unix_time</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">pexpireat</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">ms_unix_time</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- pexpireat-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- pexpireat-method -->
+
+    
+      <div id="method-i-ping" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ping</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Ping the server.</p>
+          
+
+          
+          <div class="method-source-code" id="ping-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ping</span>
+  <span class="ruby-identifier">on_each_node</span> <span class="ruby-value">:ping</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- ping-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- ping-method -->
+
+    
+      <div id="method-i-pipelined" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pipelined</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pipelined-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 754</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pipelined</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">CannotDistribute</span>, <span class="ruby-value">:pipelined</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- pipelined-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- pipelined-method -->
+
+    
+      <div id="method-i-psetex" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">psetex</span><span
+            class="method-args">(key, ttl, value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the time to live in milliseconds of a key.</p>
+          
+
+          
+          <div class="method-source-code" id="psetex-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 242</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">psetex</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">ttl</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">psetex</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">ttl</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- psetex-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- psetex-method -->
+
+    
+      <div id="method-i-psubscribe" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">psubscribe</span><span
+            class="method-args">(*channels, &block)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Listen for messages published to channels matching the given patterns.</p>
+          
+
+          
+          <div class="method-source-code" id="psubscribe-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 734</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">psubscribe</span>(*<span class="ruby-identifier">channels</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- psubscribe-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- psubscribe-method -->
+
+    
+      <div id="method-i-pttl" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pttl</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the time to live (in milliseconds) for a key.</p>
+          
+
+          
+          <div class="method-source-code" id="pttl-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pttl</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">pttl</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- pttl-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- pttl-method -->
+
+    
+      <div id="method-i-publish" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">publish</span><span
+            class="method-args">(channel, message)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Post a message to a channel.</p>
+          
+
+          
+          <div class="method-source-code" id="publish-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 706</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">publish</span>(<span class="ruby-identifier">channel</span>, <span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">channel</span>).<span class="ruby-identifier">publish</span>(<span class="ruby-identifier">channel</span>, <span class="ruby-identifier">message</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- publish-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- publish-method -->
+
+    
+      <div id="method-i-punsubscribe" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">punsubscribe</span><span
+            class="method-args">(*channels)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Stop listening for messages posted to channels matching the given patterns.</p>
+          
+
+          
+          <div class="method-source-code" id="punsubscribe-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 740</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">punsubscribe</span>(*<span class="ruby-identifier">channels</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- punsubscribe-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- punsubscribe-method -->
+
+    
+      <div id="method-i-quit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">quit</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Close the connection.</p>
+          
+
+          
+          <div class="method-source-code" id="quit-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">quit</span>
+  <span class="ruby-identifier">on_each_node</span> <span class="ruby-value">:quit</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- quit-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- quit-method -->
+
+    
+      <div id="method-i-randomkey" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">randomkey</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return a random key from the keyspace.</p>
+          
+
+          
+          <div class="method-source-code" id="randomkey-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">randomkey</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">CannotDistribute</span>, <span class="ruby-value">:randomkey</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- randomkey-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- randomkey-method -->
+
+    
+      <div id="method-i-rename" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rename</span><span
+            class="method-args">(old_name, new_name)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Rename a key.</p>
+          
+
+          
+          <div class="method-source-code" id="rename-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 179</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rename</span>(<span class="ruby-identifier">old_name</span>, <span class="ruby-identifier">new_name</span>)
+  <span class="ruby-identifier">ensure_same_node</span>(<span class="ruby-value">:rename</span>, [<span class="ruby-identifier">old_name</span>, <span class="ruby-identifier">new_name</span>]) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">rename</span>(<span class="ruby-identifier">old_name</span>, <span class="ruby-identifier">new_name</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- rename-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- rename-method -->
+
+    
+      <div id="method-i-renamenx" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">renamenx</span><span
+            class="method-args">(old_name, new_name)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Rename a key, only if the new key does not exist.</p>
+          
+
+          
+          <div class="method-source-code" id="renamenx-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 186</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">renamenx</span>(<span class="ruby-identifier">old_name</span>, <span class="ruby-identifier">new_name</span>)
+  <span class="ruby-identifier">ensure_same_node</span>(<span class="ruby-value">:renamenx</span>, [<span class="ruby-identifier">old_name</span>, <span class="ruby-identifier">new_name</span>]) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">renamenx</span>(<span class="ruby-identifier">old_name</span>, <span class="ruby-identifier">new_name</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- renamenx-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- renamenx-method -->
+
+    
+      <div id="method-i-restore" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">restore</span><span
+            class="method-args">(key, ttl, serialized_value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a key using the serialized value, previously obtained using DUMP.</p>
+          
+
+          
+          <div class="method-source-code" id="restore-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">restore</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">ttl</span>, <span class="ruby-identifier">serialized_value</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">restore</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">ttl</span>, <span class="ruby-identifier">serialized_value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- restore-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- restore-method -->
+
+    
+      <div id="method-i-rpop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rpop</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove and get the last element in a list.</p>
+          
+
+          
+          <div class="method-source-code" id="rpop-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 369</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rpop</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">rpop</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- rpop-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- rpop-method -->
+
+    
+      <div id="method-i-rpoplpush" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rpoplpush</span><span
+            class="method-args">(source, destination)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove the last element in a list, append it to another list and return it.</p>
+          
+
+          
+          <div class="method-source-code" id="rpoplpush-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 375</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rpoplpush</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">destination</span>)
+  <span class="ruby-identifier">ensure_same_node</span>(<span class="ruby-value">:rpoplpush</span>, [<span class="ruby-identifier">source</span>, <span class="ruby-identifier">destination</span>]) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">rpoplpush</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">destination</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- rpoplpush-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- rpoplpush-method -->
+
+    
+      <div id="method-i-rpush" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rpush</span><span
+            class="method-args">(key, value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Append one or more values to a list.</p>
+          
+
+          
+          <div class="method-source-code" id="rpush-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 354</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rpush</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">rpush</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- rpush-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- rpush-method -->
+
+    
+      <div id="method-i-rpushx" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rpushx</span><span
+            class="method-args">(key, value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Append a value to a list, only if the list exists.</p>
+          
+
+          
+          <div class="method-source-code" id="rpushx-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 359</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rpushx</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">rpushx</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- rpushx-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- rpushx-method -->
+
+    
+      <div id="method-i-sadd" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sadd</span><span
+            class="method-args">(key, member)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add one or more members to a set.</p>
+          
+
+          
+          <div class="method-source-code" id="sadd-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 465</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sadd</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">member</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">sadd</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">member</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- sadd-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- sadd-method -->
+
+    
+      <div id="method-i-save" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">save</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Synchronously save the dataset to disk.</p>
+          
+
+          
+          <div class="method-source-code" id="save-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">save</span>
+  <span class="ruby-identifier">on_each_node</span> <span class="ruby-value">:save</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- save-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- save-method -->
+
+    
+      <div id="method-i-scard" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scard</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the number of members in a set.</p>
+          
+
+          
+          <div class="method-source-code" id="scard-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 460</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scard</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">scard</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- scard-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- scard-method -->
+
+    
+      <div id="method-i-script" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">script</span><span
+            class="method-args">(subcommand, *args)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Control remote script registry.</p>
+          
+
+          
+          <div class="method-source-code" id="script-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 774</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">script</span>(<span class="ruby-identifier">subcommand</span>, *<span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">on_each_node</span>(<span class="ruby-value">:script</span>, <span class="ruby-identifier">subcommand</span>, *<span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- script-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- script-method -->
+
+    
+      <div id="method-i-sdiff" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sdiff</span><span
+            class="method-args">(*keys)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Subtract multiple sets.</p>
+          
+
+          
+          <div class="method-source-code" id="sdiff-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 502</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sdiff</span>(*<span class="ruby-identifier">keys</span>)
+  <span class="ruby-identifier">ensure_same_node</span>(<span class="ruby-value">:sdiff</span>, <span class="ruby-identifier">keys</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">sdiff</span>(*<span class="ruby-identifier">keys</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- sdiff-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- sdiff-method -->
+
+    
+      <div id="method-i-sdiffstore" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sdiffstore</span><span
+            class="method-args">(destination, *keys)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Subtract multiple sets and store the resulting set in a key.</p>
+          
+
+          
+          <div class="method-source-code" id="sdiffstore-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 509</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sdiffstore</span>(<span class="ruby-identifier">destination</span>, *<span class="ruby-identifier">keys</span>)
+  <span class="ruby-identifier">ensure_same_node</span>(<span class="ruby-value">:sdiffstore</span>, [<span class="ruby-identifier">destination</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">keys</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">sdiffstore</span>(<span class="ruby-identifier">destination</span>, *<span class="ruby-identifier">keys</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- sdiffstore-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- sdiffstore-method -->
+
+    
+      <div id="method-i-select" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">select</span><span
+            class="method-args">(db)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Change the selected database for the current connection.</p>
+          
+
+          
+          <div class="method-source-code" id="select-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">select</span>(<span class="ruby-identifier">db</span>)
+  <span class="ruby-identifier">on_each_node</span> <span class="ruby-value">:select</span>, <span class="ruby-identifier">db</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- select-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- select-method -->
+
+    
+      <div id="method-i-set" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set</span><span
+            class="method-args">(key, value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the string value of a key.</p>
+          
+
+          
+          <div class="method-source-code" id="set-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 232</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">set</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- set-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- set-method -->
+
+    
+      <div id="method-i-setbit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setbit</span><span
+            class="method-args">(key, offset, value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets or clears the bit at offset in the string value stored at key.</p>
+          
+
+          
+          <div class="method-source-code" id="setbit-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 294</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setbit</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">setbit</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- setbit-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- setbit-method -->
+
+    
+      <div id="method-i-setex" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setex</span><span
+            class="method-args">(key, ttl, value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the time to live in seconds of a key.</p>
+          
+
+          
+          <div class="method-source-code" id="setex-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 237</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setex</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">ttl</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">setex</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">ttl</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- setex-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- setex-method -->
+
+    
+      <div id="method-i-setnx" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setnx</span><span
+            class="method-args">(key, value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the value of a key, only if the key does not exist.</p>
+          
+
+          
+          <div class="method-source-code" id="setnx-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 247</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setnx</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">setnx</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- setnx-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- setnx-method -->
+
+    
+      <div id="method-i-setrange" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setrange</span><span
+            class="method-args">(key, offset, value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Overwrite part of a string at key starting at the specified offset.</p>
+          
+
+          
+          <div class="method-source-code" id="setrange-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 284</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setrange</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">setrange</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- setrange-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- setrange-method -->
+
+    
+      <div id="method-i-sinter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sinter</span><span
+            class="method-args">(*keys)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Intersect multiple sets.</p>
+          
+
+          
+          <div class="method-source-code" id="sinter-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 516</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sinter</span>(*<span class="ruby-identifier">keys</span>)
+  <span class="ruby-identifier">ensure_same_node</span>(<span class="ruby-value">:sinter</span>, <span class="ruby-identifier">keys</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">sinter</span>(*<span class="ruby-identifier">keys</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- sinter-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- sinter-method -->
+
+    
+      <div id="method-i-sinterstore" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sinterstore</span><span
+            class="method-args">(destination, *keys)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Intersect multiple sets and store the resulting set in a key.</p>
+          
+
+          
+          <div class="method-source-code" id="sinterstore-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 523</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sinterstore</span>(<span class="ruby-identifier">destination</span>, *<span class="ruby-identifier">keys</span>)
+  <span class="ruby-identifier">ensure_same_node</span>(<span class="ruby-value">:sinterstore</span>, [<span class="ruby-identifier">destination</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">keys</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">sinterstore</span>(<span class="ruby-identifier">destination</span>, *<span class="ruby-identifier">keys</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- sinterstore-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- sinterstore-method -->
+
+    
+      <div id="method-i-sismember" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sismember</span><span
+            class="method-args">(key, member)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Determine if a given value is a member of a set.</p>
+          
+
+          
+          <div class="method-source-code" id="sismember-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 492</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sismember</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">member</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">sismember</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">member</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- sismember-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- sismember-method -->
+
+    
+      <div id="method-i-smembers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">smembers</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get all the members in a set.</p>
+          
+
+          
+          <div class="method-source-code" id="smembers-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 497</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">smembers</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">smembers</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- smembers-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- smembers-method -->
+
+    
+      <div id="method-i-smove" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">smove</span><span
+            class="method-args">(source, destination, member)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Move a member from one set to another.</p>
+          
+
+          
+          <div class="method-source-code" id="smove-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 485</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">smove</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">destination</span>, <span class="ruby-identifier">member</span>)
+  <span class="ruby-identifier">ensure_same_node</span>(<span class="ruby-value">:smove</span>, [<span class="ruby-identifier">source</span>, <span class="ruby-identifier">destination</span>]) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">smove</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">destination</span>, <span class="ruby-identifier">member</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- smove-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- smove-method -->
+
+    
+      <div id="method-i-sort" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sort</span><span
+            class="method-args">(key, options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sort the elements in a list, set or sorted set.</p>
+          
+
+          
+          <div class="method-source-code" id="sort-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 193</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sort</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">keys</span> = [<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>[<span class="ruby-value">:by</span>], <span class="ruby-identifier">options</span>[<span class="ruby-value">:store</span>], *<span class="ruby-constant">Array</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:get</span>])].<span class="ruby-identifier">compact</span>
+
+  <span class="ruby-identifier">ensure_same_node</span>(<span class="ruby-value">:sort</span>, <span class="ruby-identifier">keys</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">sort</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- sort-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- sort-method -->
+
+    
+      <div id="method-i-spop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">spop</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove and return a random member from a set.</p>
+          
+
+          
+          <div class="method-source-code" id="spop-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 475</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">spop</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">spop</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- spop-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- spop-method -->
+
+    
+      <div id="method-i-srandmember" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">srandmember</span><span
+            class="method-args">(key, count = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get a random member from a set.</p>
+          
+
+          
+          <div class="method-source-code" id="srandmember-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 480</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">srandmember</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">count</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">srandmember</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">count</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- srandmember-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- srandmember-method -->
+
+    
+      <div id="method-i-srem" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">srem</span><span
+            class="method-args">(key, member)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove one or more members from a set.</p>
+          
+
+          
+          <div class="method-source-code" id="srem-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 470</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">srem</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">member</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">srem</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">member</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- srem-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- srem-method -->
+
+    
+      <div id="method-i-strlen" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">strlen</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the length of the value stored in a key.</p>
+          
+
+          
+          <div class="method-source-code" id="strlen-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 326</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">strlen</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">strlen</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- strlen-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- strlen-method -->
+
+    
+      <div id="method-i-subscribe" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">subscribe</span><span
+            class="method-args">(channel, *channels, &block)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Listen for messages published to the given channels.</p>
+          
+
+          
+          <div class="method-source-code" id="subscribe-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 715</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">subscribe</span>(<span class="ruby-identifier">channel</span>, *<span class="ruby-identifier">channels</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">channels</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-ivar">@subscribed_node</span> = <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">channel</span>)
+    <span class="ruby-ivar">@subscribed_node</span>.<span class="ruby-identifier">subscribe</span>(<span class="ruby-identifier">channel</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">ensure_same_node</span>(<span class="ruby-value">:subscribe</span>, [<span class="ruby-identifier">channel</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">channels</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@subscribed_node</span> = <span class="ruby-identifier">node</span>
+      <span class="ruby-identifier">node</span>.<span class="ruby-identifier">subscribe</span>(<span class="ruby-identifier">channel</span>, *<span class="ruby-identifier">channels</span>, &amp;<span class="ruby-identifier">block</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- subscribe-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- subscribe-method -->
+
+    
+      <div id="method-i-subscribed-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">subscribed?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="subscribed-3F-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 710</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">subscribed?</span>
+  <span class="ruby-operator">!</span><span class="ruby-operator">!</span> <span class="ruby-ivar">@subscribed_node</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- subscribed-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- subscribed-3F-method -->
+
+    
+      <div id="method-i-sunion" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sunion</span><span
+            class="method-args">(*keys)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add multiple sets.</p>
+          
+
+          
+          <div class="method-source-code" id="sunion-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 530</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sunion</span>(*<span class="ruby-identifier">keys</span>)
+  <span class="ruby-identifier">ensure_same_node</span>(<span class="ruby-value">:sunion</span>, <span class="ruby-identifier">keys</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">sunion</span>(*<span class="ruby-identifier">keys</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- sunion-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- sunion-method -->
+
+    
+      <div id="method-i-sunionstore" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sunionstore</span><span
+            class="method-args">(destination, *keys)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add multiple sets and store the resulting set in a key.</p>
+          
+
+          
+          <div class="method-source-code" id="sunionstore-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 537</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sunionstore</span>(<span class="ruby-identifier">destination</span>, *<span class="ruby-identifier">keys</span>)
+  <span class="ruby-identifier">ensure_same_node</span>(<span class="ruby-value">:sunionstore</span>, [<span class="ruby-identifier">destination</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">keys</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">sunionstore</span>(<span class="ruby-identifier">destination</span>, *<span class="ruby-identifier">keys</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- sunionstore-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- sunionstore-method -->
+
+    
+      <div id="method-i-time" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">time</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get server time: an UNIX timestamp and the elapsed microseconds in the
+current second.</p>
+          
+
+          
+          <div class="method-source-code" id="time-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">time</span>
+  <span class="ruby-identifier">on_each_node</span> <span class="ruby-value">:time</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- time-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- time-method -->
+
+    
+      <div id="method-i-ttl" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ttl</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the time to live (in seconds) for a key.</p>
+          
+
+          
+          <div class="method-source-code" id="ttl-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ttl</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">ttl</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- ttl-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- ttl-method -->
+
+    
+      <div id="method-i-type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">type</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Determine the type stored at key.</p>
+          
+
+          
+          <div class="method-source-code" id="type-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 202</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">type</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">type</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- type-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- type-method -->
+
+    
+      <div id="method-i-unsubscribe" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unsubscribe</span><span
+            class="method-args">(*channels)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Stop listening for messages posted to the given channels.</p>
+          
+
+          
+          <div class="method-source-code" id="unsubscribe-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 728</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unsubscribe</span>(*<span class="ruby-identifier">channels</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">RuntimeError</span>, <span class="ruby-string">&quot;Can't unsubscribe if not subscribed.&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">subscribed?</span>
+  <span class="ruby-ivar">@subscribed_node</span>.<span class="ruby-identifier">unsubscribe</span>(*<span class="ruby-identifier">channels</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- unsubscribe-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- unsubscribe-method -->
+
+    
+      <div id="method-i-unwatch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unwatch</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Forget about all watched keys.</p>
+          
+
+          
+          <div class="method-source-code" id="unwatch-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 750</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unwatch</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">CannotDistribute</span>, <span class="ruby-value">:unwatch</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- unwatch-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- unwatch-method -->
+
+    
+      <div id="method-i-watch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">watch</span><span
+            class="method-args">(*keys)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Watch the given keys to determine execution of the MULTI/EXEC block.</p>
+          
+
+          
+          <div class="method-source-code" id="watch-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 745</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">watch</span>(*<span class="ruby-identifier">keys</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">CannotDistribute</span>, <span class="ruby-value">:watch</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- watch-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- watch-method -->
+
+    
+      <div id="method-i-zadd" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zadd</span><span
+            class="method-args">(key, *args)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add one or more members to a sorted set, or update the score for members
+that already exist.</p>
+          
+
+          
+          <div class="method-source-code" id="zadd-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 550</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">zadd</span>(<span class="ruby-identifier">key</span>, *<span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">zadd</span>(<span class="ruby-identifier">key</span>, *<span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- zadd-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- zadd-method -->
+
+    
+      <div id="method-i-zcard" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zcard</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the number of members in a sorted set.</p>
+          
+
+          
+          <div class="method-source-code" id="zcard-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 544</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">zcard</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">zcard</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- zcard-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- zcard-method -->
+
+    
+      <div id="method-i-zcount" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zcount</span><span
+            class="method-args">(key, min, max)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the number of members in a particular score range.</p>
+          
+
+          
+          <div class="method-source-code" id="zcount-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 613</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">zcount</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">min</span>, <span class="ruby-identifier">max</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">zcount</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">min</span>, <span class="ruby-identifier">max</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- zcount-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- zcount-method -->
+
+    
+      <div id="method-i-zincrby" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zincrby</span><span
+            class="method-args">(key, increment, member)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Increment the score of a member in a sorted set.</p>
+          
+
+          
+          <div class="method-source-code" id="zincrby-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 555</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">zincrby</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">increment</span>, <span class="ruby-identifier">member</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">zincrby</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">increment</span>, <span class="ruby-identifier">member</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- zincrby-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- zincrby-method -->
+
+    
+      <div id="method-i-zinterstore" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zinterstore</span><span
+            class="method-args">(destination, keys, options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Intersect multiple sorted sets and store the resulting sorted set in a new
+key.</p>
+          
+
+          
+          <div class="method-source-code" id="zinterstore-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 619</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">zinterstore</span>(<span class="ruby-identifier">destination</span>, <span class="ruby-identifier">keys</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">ensure_same_node</span>(<span class="ruby-value">:zinterstore</span>, [<span class="ruby-identifier">destination</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">keys</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">zinterstore</span>(<span class="ruby-identifier">destination</span>, <span class="ruby-identifier">keys</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- zinterstore-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- zinterstore-method -->
+
+    
+      <div id="method-i-zrange" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zrange</span><span
+            class="method-args">(key, start, stop, options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return a range of members in a sorted set, by index.</p>
+          
+
+          
+          <div class="method-source-code" id="zrange-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 570</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">zrange</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">stop</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">zrange</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">stop</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- zrange-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- zrange-method -->
+
+    
+      <div id="method-i-zrangebyscore" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zrangebyscore</span><span
+            class="method-args">(key, min, max, options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return a range of members in a sorted set, by score.</p>
+          
+
+          
+          <div class="method-source-code" id="zrangebyscore-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 597</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">zrangebyscore</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">min</span>, <span class="ruby-identifier">max</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">zrangebyscore</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">min</span>, <span class="ruby-identifier">max</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- zrangebyscore-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- zrangebyscore-method -->
+
+    
+      <div id="method-i-zrank" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zrank</span><span
+            class="method-args">(key, member)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Determine the index of a member in a sorted set.</p>
+          
+
+          
+          <div class="method-source-code" id="zrank-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 581</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">zrank</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">member</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">zrank</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">member</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- zrank-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- zrank-method -->
+
+    
+      <div id="method-i-zrem" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zrem</span><span
+            class="method-args">(key, member)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove one or more members from a sorted set.</p>
+          
+
+          
+          <div class="method-source-code" id="zrem-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 560</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">zrem</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">member</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">zrem</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">member</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- zrem-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- zrem-method -->
+
+    
+      <div id="method-i-zremrangebyrank" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zremrangebyrank</span><span
+            class="method-args">(key, start, stop)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove all members in a sorted set within the given indexes.</p>
+          
+
+          
+          <div class="method-source-code" id="zremrangebyrank-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 592</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">zremrangebyrank</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">stop</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">zremrangebyrank</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">stop</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- zremrangebyrank-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- zremrangebyrank-method -->
+
+    
+      <div id="method-i-zremrangebyscore" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zremrangebyscore</span><span
+            class="method-args">(key, min, max)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove all members in a sorted set within the given scores.</p>
+          
+
+          
+          <div class="method-source-code" id="zremrangebyscore-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 608</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">zremrangebyscore</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">min</span>, <span class="ruby-identifier">max</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">zremrangebyscore</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">min</span>, <span class="ruby-identifier">max</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- zremrangebyscore-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- zremrangebyscore-method -->
+
+    
+      <div id="method-i-zrevrange" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zrevrange</span><span
+            class="method-args">(key, start, stop, options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return a range of members in a sorted set, by index, with scores ordered
+from high to low.</p>
+          
+
+          
+          <div class="method-source-code" id="zrevrange-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 576</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">zrevrange</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">stop</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">zrevrange</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">stop</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- zrevrange-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- zrevrange-method -->
+
+    
+      <div id="method-i-zrevrangebyscore" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zrevrangebyscore</span><span
+            class="method-args">(key, max, min, options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return a range of members in a sorted set, by score, with scores ordered
+from high to low.</p>
+          
+
+          
+          <div class="method-source-code" id="zrevrangebyscore-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 603</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">zrevrangebyscore</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">max</span>, <span class="ruby-identifier">min</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">zrevrangebyscore</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">max</span>, <span class="ruby-identifier">min</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- zrevrangebyscore-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- zrevrangebyscore-method -->
+
+    
+      <div id="method-i-zrevrank" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zrevrank</span><span
+            class="method-args">(key, member)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Determine the index of a member in a sorted set, with scores ordered from
+high to low.</p>
+          
+
+          
+          <div class="method-source-code" id="zrevrank-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 587</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">zrevrank</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">member</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">zrevrank</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">member</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- zrevrank-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- zrevrank-method -->
+
+    
+      <div id="method-i-zscore" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zscore</span><span
+            class="method-args">(key, member)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the score associated with the given member in a sorted set.</p>
+          
+
+          
+          <div class="method-source-code" id="zscore-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 565</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">zscore</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">member</span>)
+  <span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">zscore</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">member</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- zscore-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- zscore-method -->
+
+    
+      <div id="method-i-zunionstore" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zunionstore</span><span
+            class="method-args">(destination, keys, options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add multiple sorted sets and store the resulting sorted set in a new key.</p>
+          
+
+          
+          <div class="method-source-code" id="zunionstore-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 626</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">zunionstore</span>(<span class="ruby-identifier">destination</span>, <span class="ruby-identifier">keys</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">ensure_same_node</span>(<span class="ruby-value">:zunionstore</span>, [<span class="ruby-identifier">destination</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">keys</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">zunionstore</span>(<span class="ruby-identifier">destination</span>, <span class="ruby-identifier">keys</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- zunionstore-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- zunionstore-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Protected Instance Methods</h3>
+
+    
+      <div id="method-i-ensure_same_node" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ensure_same_node</span><span
+            class="method-args">(command, keys) { |node_for(first)| ... }</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ensure_same_node-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 821</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ensure_same_node</span>(<span class="ruby-identifier">command</span>, <span class="ruby-identifier">keys</span>)
+  <span class="ruby-identifier">all</span> = <span class="ruby-keyword">true</span>
+
+  <span class="ruby-identifier">tags</span> = <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">tag</span> = <span class="ruby-identifier">key_tag</span>(<span class="ruby-identifier">key</span>)
+    <span class="ruby-identifier">all</span> = <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">tag</span>
+    <span class="ruby-identifier">tag</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">all</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">!=</span> <span class="ruby-value">1</span>) <span class="ruby-operator">||</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">all</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">!=</span> <span class="ruby-value">1</span>)
+    <span class="ruby-comment"># Not 1 unique tag or not 1 unique key</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">CannotDistribute</span>, <span class="ruby-identifier">command</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">first</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- ensure_same_node-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- ensure_same_node-method -->
+
+    
+      <div id="method-i-key_tag" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">key_tag</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="key_tag-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 817</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">key_tag</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>[<span class="ruby-ivar">@tag</span>, <span class="ruby-value">1</span>] <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tag</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- key_tag-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- key_tag-method -->
+
+    
+      <div id="method-i-node_index_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">node_index_for</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="node_index_for-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 813</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">node_index_for</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">nodes</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">node_for</span>(<span class="ruby-identifier">key</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- node_index_for-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- node_index_for-method -->
+
+    
+      <div id="method-i-on_each_node" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_each_node</span><span
+            class="method-args">(command, *args)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_each_node-source">
+            <pre><span class="ruby-comment"># File lib/redis/distributed.rb, line 807</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_each_node</span>(<span class="ruby-identifier">command</span>, *<span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">nodes</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">command</span>, *<span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- on_each_node-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- on_each_node-method -->
+
+    
+    </section><!-- protected-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

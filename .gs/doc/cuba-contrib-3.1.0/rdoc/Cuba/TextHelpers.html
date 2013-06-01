@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Cuba::TextHelpers - cuba-contrib-3.1.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/cuba/text_helpers.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-currency">#currency</a>
+    
+    <li><a href="#method-i-delimit">#delimit</a>
+    
+    <li><a href="#method-i-markdown">#markdown</a>
+    
+    <li><a href="#method-i-nl2br">#nl2br</a>
+    
+    <li><a href="#method-i-titlecase">#titlecase</a>
+    
+    <li><a href="#method-i-truncate">#truncate</a>
+    
+    <li><a href="#method-i-underscore">#underscore</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Cuba.html">Cuba</a>
+  
+    <li><a href="../Cuba/Mote.html">Cuba::Mote</a>
+  
+    <li><a href="../Cuba/Mote/NoLayout.html">Cuba::Mote::NoLayout</a>
+  
+    <li><a href="../Cuba/Prelude.html">Cuba::Prelude</a>
+  
+    <li><a href="../Cuba/TextHelpers.html">Cuba::TextHelpers</a>
+  
+    <li><a href="../Cuba/With.html">Cuba::With</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Cuba::TextHelpers</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-currency" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">currency</span><span
+            class="method-args">(amount, unit = "$")</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="currency-source">
+            <pre><span class="ruby-comment"># File lib/cuba/text_helpers.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">currency</span>(<span class="ruby-identifier">amount</span>, <span class="ruby-identifier">unit</span> = <span class="ruby-string">&quot;$&quot;</span>)
+  <span class="ruby-node">&quot;#{unit} %.2f&quot;</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">amount</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- currency-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- currency-method -->
+
+    
+      <div id="method-i-delimit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delimit</span><span
+            class="method-args">(number, delimiter = ",")</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delimit-source">
+            <pre><span class="ruby-comment"># File lib/cuba/text_helpers.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delimit</span>(<span class="ruby-identifier">number</span>, <span class="ruby-identifier">delimiter</span> = <span class="ruby-string">&quot;,&quot;</span>)
+  <span class="ruby-identifier">number</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">%r{(\d)(?=(\d\d\d)+(?!\d))}</span>, <span class="ruby-node">&quot;\\1#{delimiter}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- delimit-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- delimit-method -->
+
+    
+      <div id="method-i-markdown" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">markdown</span><span
+            class="method-args">(str)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="markdown-source">
+            <pre><span class="ruby-comment"># File lib/cuba/text_helpers.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">markdown</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-constant">Markdown</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">str</span>).<span class="ruby-identifier">to_html</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- markdown-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- markdown-method -->
+
+    
+      <div id="method-i-nl2br" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nl2br</span><span
+            class="method-args">(str)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="nl2br-source">
+            <pre><span class="ruby-comment"># File lib/cuba/text_helpers.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">nl2br</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">%r\n|\r\n/</span>, <span class="ruby-string">&quot;&lt;br&gt;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- nl2br-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- nl2br-method -->
+
+    
+      <div id="method-i-titlecase" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">titlecase</span><span
+            class="method-args">(str)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="titlecase-source">
+            <pre><span class="ruby-comment"># File lib/cuba/text_helpers.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">titlecase</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">res</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">res</span>.<span class="ruby-identifier">tr!</span>(<span class="ruby-string">&quot;_&quot;</span>, <span class="ruby-string">&quot; &quot;</span>)
+  <span class="ruby-identifier">res</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">%r(^|\s)([a-z])/</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">char</span><span class="ruby-operator">|</span> <span class="ruby-identifier">char</span>.<span class="ruby-identifier">upcase</span> }
+  <span class="ruby-identifier">res</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- titlecase-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- titlecase-method -->
+
+    
+      <div id="method-i-truncate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">truncate</span><span
+            class="method-args">(str, length, ellipses = "...")</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="truncate-source">
+            <pre><span class="ruby-comment"># File lib/cuba/text_helpers.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">truncate</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">length</span>, <span class="ruby-identifier">ellipses</span> = <span class="ruby-string">&quot;...&quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">str</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">str</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">length</span>
+
+  <span class="ruby-identifier">sprintf</span>(<span class="ruby-node">&quot;%.#{length}s#{ellipses}&quot;</span>, <span class="ruby-identifier">str</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- truncate-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- truncate-method -->
+
+    
+      <div id="method-i-underscore" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">underscore</span><span
+            class="method-args">(str)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="underscore-source">
+            <pre><span class="ruby-comment"># File lib/cuba/text_helpers.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">underscore</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">res</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">res</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">%r([A-Z]+)([A-Z][a-z])/</span>,<span class="ruby-string">'\1_\2'</span>)
+  <span class="ruby-identifier">res</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">%r([a-z\d])([A-Z])/</span>,<span class="ruby-string">'\1_\2'</span>)
+  <span class="ruby-identifier">res</span>.<span class="ruby-identifier">downcase!</span>
+  <span class="ruby-identifier">res</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- underscore-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- underscore-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

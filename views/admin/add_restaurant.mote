@@ -1,0 +1,20 @@
+<h3>Add new restaurant</h3>
+<form action="/admin/add_restaurant" method="POST">
+  <label>Name:</label>
+  <input type="text" name="restaurant[name]" value="{{ restaurant.name }}">
+  <br>
+
+  <label>Cuisine</label>
+  <input type="text" name="restaurant[cuisine]" value="{{ restaurant.cuisine }}">
+  <br>
+
+  <label>URL</label>
+  <input type="text" name="restaurant[url]" value="{{ restaurant.url }}">
+  <br>
+
+  <div>
+    <button type="submit" name="add">Add</button>
+  </div>
+</form>
+<br><br>
+<a href="/">Back to restaurants</a>
