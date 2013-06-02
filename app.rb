@@ -43,6 +43,7 @@ Cuba.define do
     else
       restaurant = restaurant.capitalize
     end
+
     if Restaurant.find(:name => restaurant).empty?
       res.write "Not found"
     else
